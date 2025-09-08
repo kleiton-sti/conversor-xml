@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<cpe:ConcursoPublicoEfetivo 
-	xmlns:cpe="http://www.tce.sp.gov.br/audesp/xml/concursopublicoefetivo"
-	xmlns:lcl="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao"
-	xmlns:pro="http://www.tce.sp.gov.br/audesp/xml/prazoprorrogacao"
-	xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico"
-	xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/concursopublicoefetivo ../processoselecao/AUDESP_CONCURSO_PUBLICO_EFETIVO_2023_A.XSD">
+<cpe:ConcursoPublicoEfetivo xmlns:cpe="http://www.tce.sp.gov.br/audesp/xml/concursopublicoefetivo" xmlns:lcl="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao" xmlns:pro="http://www.tce.sp.gov.br/audesp/xml/prazoprorrogacao" xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico" xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/concursopublicoefetivo ../processoselecao/AUDESP_CONCURSO_PUBLICO_EFETIVO_2023_A.XSD">
     <cpe:Descritor>
         <gen:AnoExercicio>2023</gen:AnoExercicio>
         <gen:TipoDocumento>Concurso P�blico Efetivo</gen:TipoDocumento>
@@ -70,13 +63,6 @@
 			<!--lcl:codigoFuncaoResponsavelHomologacao>1</lcl:codigoFuncaoResponsavelHomologacao-->
 		</cpe:DadosClassificacao>
 		<cpe:Classificados>
-			<lcl:Classificado>
-				<lcl:cpfClassificado Tipo="02">
-					<gen:Numero>00000000191</gen:Numero>
-				</lcl:cpfClassificado>
-				<lcl:nomeClassificado>Nome</lcl:nomeClassificado>
-				<lcl:ordemClassificacao>1</lcl:ordemClassificacao>
-			</lcl:Classificado>
 		</cpe:Classificados>		
 	</cpe:Classificacao>
 	<cpe:PrazoProrrogacao>

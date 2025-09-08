@@ -15,41 +15,54 @@ class ConversorController extends Controller {
         $this->data = (new LoadFileService())->reader();
     }
 
-
-    
-    //adiciona os dados
     public function addClassificados() {
+    
+    // Caminho para o arquivo XML
+    $xmlFilePath = base_path("storage/xml/xmlPattern.xml");
 
-        //carrega padrão AUDESP XML
-        $this->xml = simplexml_load_file(base_path("resources/views/xml/xmlPattern.xml"));
+    // Carrega o arquivo XML em um objeto DOM bem estruturado
+    $dom = new \DOMDocument('1.0','UTF-8');
+    $dom->preserveWhiteSpace = false;
+    $dom->formatOutput = true;
+    $dom->load($xmlFilePath);
 
-        $this->namespace = $this->xml->getNamespaces(true);
+    // Carrega XML com SimpleXML para manipulação mais simples
+    $this->xml = simplexml_load_file($xmlFilePath);
 
-        // Acessa os nós usando os namespaces corretamente
-        $classificacao = $this->xml->children($this->namespace['cpe'])->Classificacao ?? null;
-        $classificados = $classificacao->children($this->namespace['cpe'])->Classificados ?? null;
-        $listaClassificados = $classificados->children($this->namespace['lcl']);
-        $data = $this->data;
+    // Recupera namespaces
+    $this->namespace = $this->xml->getNamespaces(true);
 
+    // Navega pelos nós usando namespaces
+    $classificacao = $this->xml->children($this->namespace['cpe'])->Classificacao ?? null;
+    $classificados = $classificacao->children($this->namespace['cpe'])->Classificados ?? null;
+
+    $data = $this->data;
+
+    for ($i = 0; $i < count($data); $i++) {
+        $novo = $classificados->addChild('lcl:Classificado', null, $this->namespace['lcl']);
+        $cpf = $novo->addChild('lcl:cpfClassificado', null, $this->namespace['lcl']);
         
-        foreach ($listaClassificados as $classificado) {
-            
-            $classificado->cpfClassificado = $data[0]["S"];
-            $classificado->nomeClassificado = $data[1]["T"];
-            $classificado->ordemClassificacao = $data[2]["U"];
-        } 
+        // Adiciona o atributo Tipo="02" no nó cpfClassificado
+        $cpfDom = dom_import_simplexml($cpf);
+        $cpfDom->setAttribute('Tipo', '02');
 
-        for ($i = 1; $i < count($data); $i++) {
-            $novo = $listaClassificados->addChild("lcl:Classificado", null, $this->namespace['lcl']);
-            $cpf = $novo->addChild("lcl:cpfClassificado", null, $this->namespace['lcl']);
-            $cpf->addChild("gen:Numero", $data[$i]["S"], $this->namespace['gen']);
+        $cpf->addChild('gen:Numero', $data[$i]["S"], $this->namespace['gen']);
 
-            $novo->addChild("lcl:nomeClassificado", $data[$i]["T"], $this->namespace['lcl']);
-            $novo->addChild("lcl:ordemClassificacao", $data[$i]["U"], $this->namespace['lcl']);
-        }
-
-        $this->xml->asXML(base_path("resources/views/xml/xmlConverted.xml"));
-        dd($this->xml);
+        $novo->addChild('lcl:nomeClassificado', $data[$i]["T"], $this->namespace['lcl']);
+        $novo->addChild('lcl:ordemClassificacao', $data[$i]["U"], $this->namespace['lcl']);
     }
+
+    // Salva o XML modificado temporariamente em string
+    $xmlString = $this->xml->asXML();
+
+    // Carrega a string XML no DOM para aplicar a formatação (identação)
+    $dom->loadXML($xmlString);
+
+    // Salva o XML formatado no arquivo desejado
+    $dom->save(base_path("storage/xml/xmlConverted.xml"));
+
+    dd('XML gerado com sucesso em resources/views/xml/xmlConverted.xml');
+}
+
     
 }
