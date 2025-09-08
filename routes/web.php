@@ -2,13 +2,12 @@
 
 use App\Http\Controllers\EntidadeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoadFile;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ConversorController;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\Mime\Part\File;
 
 Route::get('/', function () {
     return redirect()->route('home');
@@ -61,7 +60,7 @@ Route::post('/setores/{setor}/edit', [SetorController::class, 'update'])->name('
 Route::get('/setores/{setor}/destroy', [SetorController::class, 'destroy'])->name('setores.destroy')->middleware('auth')->middleware('can:inativar.setor');
 Route::get('/setores/{id}/restore', [SetorController::class, 'restore'])->name('setores.restore')->middleware('auth')->middleware('can:inativar.setor');
 
-Route::get('/arquivo', [LoadFile::class,"reader"])->name('arquivo');
+Route::get('/arquivo', [ConversorController::class,'addClassificados'])->name('arquivo');
 
 
 

@@ -1,15 +1,12 @@
-<?php 
+<?
 
-namespace App\Http\Controllers;
+namespace App\Services;
 
-
-// PHPSpreadsheet = biblioteca para trabalhar com arquivos
-// IOfactory = leitor de arquivos
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 
-class LoadFile extends Controller {
+class LoadFileService {
 
     public $inputFileName = 'C:\Users\Public\teste_audesp.xlsx';
 
@@ -45,4 +42,3 @@ class LoadFile extends Controller {
         return $letters;
     }
 }
-
