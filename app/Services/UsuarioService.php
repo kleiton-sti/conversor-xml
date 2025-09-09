@@ -17,6 +17,7 @@ class UsuarioService
         return $unidades;
     }
 
+    // Retorna todas as unidades
     public function listaUnidades()
     {
         // $unidades = Unidade::get();
@@ -33,6 +34,9 @@ class UsuarioService
         return $unidades;
     }
 
+
+
+    // Retorna um novo usuario vazio
     public function create()
     {
         $usuario = new User();
@@ -40,6 +44,7 @@ class UsuarioService
         return $usuario;
     }
 
+    // Cadastra uma nova unidade
     public function store($nomeUnidade,$entidadeId, $ip)
     {
         try {
@@ -61,7 +66,8 @@ class UsuarioService
 
             DB::commit();
             return $unidade;
-        } catch (\Error | \Exception | \ErrorException | \Throwable $e) {
+        }
+         catch (\Error | \Exception | \ErrorException | \Throwable $e) {
             DB::rollBack();
             throw $e;
         }

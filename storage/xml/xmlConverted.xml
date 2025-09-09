@@ -6,6 +6,7 @@
     <gen:Entidade>10048</gen:Entidade>
     <gen:Municipio>7107</gen:Municipio>
     <gen:DataCriacaoXML>2022-12-15</gen:DataCriacaoXML>
+    <cpe:DetaCriacaoXML>2025-09-09</cpe:DetaCriacaoXML>
   </cpe:Descritor>
   <cpe:IdentificacaoConcursoPublicoEfetivo>
     <ap:numeroProcessoSelecao>123</ap:numeroProcessoSelecao>
@@ -73,17 +74,486 @@
       </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
-          <gen:Numero>45174794805</gen:Numero>
+          <gen:Numero>04221896507</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Victor Ferraz De Oliveira</lcl:nomeClassificado>
-        <lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+        <lcl:nomeClassificado>Custódio Moreira Brasileiro Silva</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>2</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
-          <gen:Numero>04221896507</gen:Numero>
+          <gen:Numero>35383881808</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Custodio Moreira Brasileiro Silva</lcl:nomeClassificado>
-        <lcl:ordemClassificacao>2</lcl:ordemClassificacao>
+        <lcl:nomeClassificado>Luis Fernando Silva Pinheiro</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>3</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>22207121844</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Samir Abdala</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>4</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>12421010713</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Leonardo Calvo Pose Dias De Carvalho</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>5</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>22918933864</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Ewerton Da Silva Vilela</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>6</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>05137325350</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jeanderson Bertran De Alcantara Soares</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>7</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>11178109763</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Paulo Cesar Barbosa De Moraes Junior</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>8</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>11879679710</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Rodolfo Motta Da Silva Silveira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>9</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>36337899873</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Nelma Karla Waideman Fukuoka</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>10</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>42244259803</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Felipe Gonçalves De Lima</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>11</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>07428347602</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Thiago Andrade Farias</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>12</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>06944453630</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Victor Sousa Sposito</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>13</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>34655030828</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Luiz Henrique Garcia</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>14</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>65045904191</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Danielle Lourdes Vanni Lage Franca</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>15</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>04938863383</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Ubaldo Torres De Melo Coelho</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>16</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>42534362852</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Luiz Gabriel De Carvalho De Oliviera</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>17</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>32943201839</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>João Roberto Monteiro Da Silva Barbosa</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>18</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>02009241177</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Marcelo José Mendes Santiago</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>19</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>39223322855</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Rafael Barrios De Mello</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>20</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>09209965663</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Bruno Jordano Oliveira Borges</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>21</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>79151639653</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Hélio Eduardo De Paiva Araújo</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>22</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>80519369572</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Vitor Rafael Oliveira Alves</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>23</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>77087070215</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Talita Sinimbu Cecilio</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>24</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>39550654800</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Ritieri Danilo Brabo</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>25</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>29913663890</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Gustavo Seidi Hotta</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>26</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>05118731666</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Mauro Cesar Ferreira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>27</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>22066935859</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Eduardo Rodrigo Da Silva</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>28</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>39114703807</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Renan De Farias Busato</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>29</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>44557178898</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Heloísa De Melo Freire</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>30</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>11168095670</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Daniel Araújo De Assis</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>31</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>08439434910</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Pamela Maia</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>32</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>46286137882</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Gabriel Nagy Nascimento</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>33</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>32041606886</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Gustavo Fellipe Dos Santos Oliveira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>34</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>36374919823</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Cintia Yara Silva Barbosa</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>35</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>38942184871</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Gabriel Barbosa Fagundes</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>36</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>48005865856</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Priscila Bald</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>37</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>03194277650</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Brawner De Souza Costa Marcato</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>38</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>30928326802</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Emilson Pereira Dos Santos</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>39</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>12463646705</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Raphael Beliene Braga</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>40</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>39001734863</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Lucas Bezerra Pereira Gomes</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>41</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>44235831860</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Alex Vitor Kenji Tiba</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>42</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>31141745828</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Natália Pessanha Leite Minari</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>43</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>87876418600</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Pollyanna Cristina Döhler De Oliveira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>44</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>27566004824</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Tarsila Costa Do Amaral</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>45</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>30932524826</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Ricardo Victalino De Oliveira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>46</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>01612679633</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Mateus Paulo Da Silva</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>47</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>02216599190</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Armando Fortes Peixoto</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>48</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>38974439883</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Francisco Antonio De Freitas Monteiro</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>49</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>44748096888</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>José Carlos Jancovic Pena</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>50</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>77650344134</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jose Marcos Lacerda Modesto Arraes</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>51</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>14316549812</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Getúlio Barreto Dos Santos</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>52</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>22726722806</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Ravic De Morais Mathias</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>53</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>34810605809</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Marcio Henrique De Brito Mazeti</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>54</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>36021037812</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Rounir Da Hora Carvalho Navarro Da Costa</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>55</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>39655102823</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Guilherme Soares Chinelatto</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>56</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>06234196969</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Luan Patrick Trindade</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>57</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>25138989820</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Katia Dias Fayad</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>58</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>33792833808</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Sarita Da Costa Alves Pereira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>59</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>33958895808</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jefferson Tavares Brito</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>60</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>36993820870</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Michel Dos Santos Meirelles</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>61</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>12178516742</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Roberta Motta Da Silva Silveira</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>62</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>38833219828</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jessica Marcelo Dos Santos</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>63</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>42786669855</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Yago Prado Simoni Collares Da Motta</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>64</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>08714546884</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Marcelo Gollo Ribeiro</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>65</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>09503532728</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jairo De Moraes Barreto</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>66</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>60020958374</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Jefferson Bertran De Alcantara Soares</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>67</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>38589903885</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Alex Junior Pinheiro Dos Santos</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>68</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>40831188812</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Tatianne Yumi Miyazaki Santos</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>69</lcl:ordemClassificacao>
+      </lcl:Classificado>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>40136139809</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Cintia Rosa Dos Santos Maeda</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>70</lcl:ordemClassificacao>
       </lcl:Classificado>
     </cpe:Classificados>
   </cpe:Classificacao>

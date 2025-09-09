@@ -20,11 +20,11 @@ class ConversorController extends Controller {
     // Caminho para o arquivo XML
     $xmlFilePath = base_path("storage/xml/xmlPattern.xml");
 
-    // Carrega o arquivo XML em um objeto DOM bem estruturado
+    // Cria um objeto DOM bem estruturado
     $dom = new \DOMDocument('1.0','UTF-8');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
-    $dom->load($xmlFilePath);
+    
 
     // Carrega XML com SimpleXML para manipulação mais simples
     $this->xml = simplexml_load_file($xmlFilePath);
@@ -32,7 +32,51 @@ class ConversorController extends Controller {
     // Recupera namespaces
     $this->namespace = $this->xml->getNamespaces(true);
 
-    // Navega pelos nós usando namespaces
+    // Descritor do XML
+    $descritor = $this->xml->children($this->namespace['cpe'])->Descritor ?? null;
+    $descritor->children($this->namespace['gen'])->DetaCriacaoXML = date('Y-m-d');
+
+    // IdentificacaoConcursoPublicoEfetivo do XML
+    $identificacaoConcursoPublicoEfetivo = $this->xml->children($this->namespace['cpe'])->IdentificacaoConcursoPublicoEfetivo ?? null;
+    $identificacaoConcursoPublicoEfetivo->children($this->namespace['ap'])->numeroProcessoSelecao = $this->data[0]["F"];
+    $identificacaoConcursoPublicoEfetivo->children($this->namespace['ap'])->anoProcessoSelecao = $this->data[0]["G"];
+
+    // Dados do concurso do XML
+    $dadosConcursoPublicoEfetivo = $this->xml->children($this->namespace['cpe'])->DadosConcursoPublicoEfetivo ?? null;
+    $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->pctVagasEspeciaisAfro = $this->data[0]["H"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->pctVagasEspeciaisDef = $this->data[0]["I"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->codigoFatorArredondamento = $this->data[0]["J"];
+
+    $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->prazoValidadeInicial ?? null;
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->anoPrazo = $this->data[0]["K"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->mesPrazo = $this->data[0]["L"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->diaPrazo = $this->data[0]["M"];
+
+    $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->prazoPrevistoProrrogacao ?? null;
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->anoPrazo = $this->data[0]["N"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->mesPrazo = $this->data[0]["O"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace["ap"])->diaPrazo = $this->data[0]["P"];
+
+    $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->edital ?? null;
+    $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->dataPublicacaoEdital = $this->data[0]["Q"];
+    $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->meioPublicacaoEdital = $this->data[0]["R"];
+
+
+
+    // Lista de cargos do XML
+    $listaCargos = $this->xml->children($this->namespace['cpe'])-> CargoEdital ?? null;
+    $listaCargos->children($this->namespace['ap'])->CodigoCargo = $this->data[1]["U"];
+    $listaCargos->children($this->namespace['ap'])->EntidadePrevista;
+    $listaCargos->children($this->namespace['ap'])->CodigoEntidadePrevista = $this->data[0]["S"];
+    $listaCargos->children($this->namespace['ap'])->CargoMunicipioEntidadePrevista = $this->data[0]["T"];
+
+    $listaCargos->children($this->namespace['cpe'])->permiteAtribPontoTitulo = $this->data[0]["V"];
+    $listaCargos->children($this->namespace['cpe'])->numVagasCargoFuncao = $this->data[0]["W"];
+
+    // a finalizar restante dos campos de cargos
+
+
+    // Classificados do XML
     $classificacao = $this->xml->children($this->namespace['cpe'])->Classificacao ?? null;
     $classificados = $classificacao->children($this->namespace['cpe'])->Classificados ?? null;
 
@@ -46,10 +90,10 @@ class ConversorController extends Controller {
         $cpfDom = dom_import_simplexml($cpf);
         $cpfDom->setAttribute('Tipo', '02');
 
-        $cpf->addChild('gen:Numero', $data[$i]["S"], $this->namespace['gen']);
+        $cpf->addChild('gen:Numero', $data[$i]["AI"], $this->namespace['gen']);
 
-        $novo->addChild('lcl:nomeClassificado', $data[$i]["T"], $this->namespace['lcl']);
-        $novo->addChild('lcl:ordemClassificacao', $data[$i]["U"], $this->namespace['lcl']);
+        $novo->addChild('lcl:nomeClassificado', $data[$i]["AJ"], $this->namespace['lcl']);
+        $novo->addChild('lcl:ordemClassificacao', $data[$i]["AK"], $this->namespace['lcl']);
     }
 
     // Salva o XML modificado temporariamente em string
@@ -61,7 +105,7 @@ class ConversorController extends Controller {
     // Salva o XML formatado no arquivo desejado
     $dom->save(base_path("storage/xml/xmlConverted.xml"));
 
-    dd('XML gerado com sucesso em resources/views/xml/xmlConverted.xml');
+    dd('XML gerado com sucesso');
 }
 
     

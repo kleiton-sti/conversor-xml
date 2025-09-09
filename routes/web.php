@@ -7,6 +7,7 @@ use App\Http\Controllers\SetorController;
 use App\Http\Controllers\UnidadeController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ConversorController;
+use App\Services\LoadFileService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,7 +26,7 @@ Route::get('/home',[HomeController::class,'index'])->name('home')->middleware('a
 
 Route::get('/usuarios',[UsuarioController::class,'index'])->name('usuarios.index')->middleware('auth')->middleware('can:consultar.usuario');
 Route::post('/usuarios', [UsuarioController::class, 'search'])->name('usuarios.search')->middleware('auth')->middleware('can:consultar.usuario');
-Route::get('/usuarios/create',[UsuarioController::class,'create'])->name('usuarios.create')->middleware('auth')->middleware('can:gerenciar.usuario');
+
 Route::post('/usuarios/create',[UsuarioController::class,'store'])->name('usuarios.store')->middleware('auth')->middleware('can:gerenciar.usuario');
 Route::get('/usuarios/{user}/edit', [UsuarioController::class, 'edit'])->name('usuarios.edit')->middleware('auth')->middleware('can:gerenciar.usuario');
 Route::post('/usuarios/{user}/edit', [UsuarioController::class, 'update'])->name('usuarios.update')->middleware('auth')->middleware('can:gerenciar.usuario');
@@ -60,7 +61,10 @@ Route::post('/setores/{setor}/edit', [SetorController::class, 'update'])->name('
 Route::get('/setores/{setor}/destroy', [SetorController::class, 'destroy'])->name('setores.destroy')->middleware('auth')->middleware('can:inativar.setor');
 Route::get('/setores/{id}/restore', [SetorController::class, 'restore'])->name('setores.restore')->middleware('auth')->middleware('can:inativar.setor');
 
+
+Route::get('/usuarios/create',[UsuarioController::class,'create'])->name('usuarios.create')->middleware('auth')->middleware('can:gerenciar.usuario');
 Route::get('/arquivo', [ConversorController::class,'addClassificados'])->name('arquivo');
+
 
 
 

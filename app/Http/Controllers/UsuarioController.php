@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Services\UsuarioService;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -11,7 +12,7 @@ class UsuarioController extends Controller
 
     function __construct(UsuarioService $usuarioService)
     {
-        $this->usuarioService = $usuarioService;
+        $this->$usuarioService = $usuarioService;
     }
     /**
      * Display a listing of the resource.
