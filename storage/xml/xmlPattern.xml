@@ -55,14 +55,21 @@
 			<lcl:dataPublicacaoListaClassificacao>2023-01-01</lcl:dataPublicacaoListaClassificacao>
 			<lcl:dataAtoHomologacaoConcurso>2023-01-01</lcl:dataAtoHomologacaoConcurso>
 			<lcl:dataValidadeInicial>2023-01-01</lcl:dataValidadeInicial>
-			<lcl:dataPublicacaoHomologacao>2023-01-01</lcl:dataPublicacaoHomologacao> <!-- opcional -->
+			<lcl:dataPublicacaoHomologacao>2023-01-01</lcl:dataPublicacaoHomologacao>
 			<lcl:cpfResponsavelHomologacao Tipo="02">
 				<gen:Numero>00000000191</gen:Numero>
 			</lcl:cpfResponsavelHomologacao>
 			<lcl:codigoCargoResponsavelHomologacao>1</lcl:codigoCargoResponsavelHomologacao>
-			<!--lcl:codigoFuncaoResponsavelHomologacao>1</lcl:codigoFuncaoResponsavelHomologacao-->
+			<lcl:codigoFuncaoResponsavelHomologacao>1</lcl:codigoFuncaoResponsavelHomologacao>
 		</cpe:DadosClassificacao>
 		<cpe:Classificados>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000191</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+			</lcl:Classificado>
 		</cpe:Classificados>		
 	</cpe:Classificacao>
 	<cpe:PrazoProrrogacao>
@@ -71,6 +78,6 @@
 			<ap:mesPrazo>0</ap:mesPrazo>
 			<ap:diaPrazo>0</ap:diaPrazo>
 		</pro:dtPrazoProrrogValidade>
-		<pro:dtPublicProrrogConcurso>2023-01-01</pro:dtPublicProrrogConcurso> <!-- opcional -->
+		<pro:dtPublicProrrogConcurso>2023-01-01</pro:dtPublicProrrogConcurso>
 	</cpe:PrazoProrrogacao>
 </cpe:ConcursoPublicoEfetivo>

@@ -5,16 +5,15 @@
     <gen:TipoDocumento>Concurso Pï¿½blico Efetivo</gen:TipoDocumento>
     <gen:Entidade>10048</gen:Entidade>
     <gen:Municipio>7107</gen:Municipio>
-    <gen:DataCriacaoXML>2022-12-15</gen:DataCriacaoXML>
-    <cpe:DetaCriacaoXML>2025-09-09</cpe:DetaCriacaoXML>
+    <gen:DataCriacaoXML>2025-09-10</gen:DataCriacaoXML>
   </cpe:Descritor>
   <cpe:IdentificacaoConcursoPublicoEfetivo>
-    <ap:numeroProcessoSelecao>123</ap:numeroProcessoSelecao>
+    <ap:numeroProcessoSelecao>02-2023</ap:numeroProcessoSelecao>
     <ap:anoProcessoSelecao>2023</ap:anoProcessoSelecao>
   </cpe:IdentificacaoConcursoPublicoEfetivo>
   <cpe:DadosConcursoPublicoEfetivo>
-    <cpe:pctVagasEspeciaisAfro>5.00</cpe:pctVagasEspeciaisAfro>
-    <cpe:pctVagasEspeciaisDef>5.00</cpe:pctVagasEspeciaisDef>
+    <cpe:pctVagasEspeciaisAfro>0</cpe:pctVagasEspeciaisAfro>
+    <cpe:pctVagasEspeciaisDef>0</cpe:pctVagasEspeciaisDef>
     <cpe:codigoFatorArredondamento>1</cpe:codigoFatorArredondamento>
     <cpe:prazoValidadeInicial>
       <ap:anoPrazo>2</ap:anoPrazo>
@@ -27,16 +26,16 @@
       <ap:diaPrazo>0</ap:diaPrazo>
     </cpe:prazoPrevistoProrrogacao>
     <cpe:edital>
-      <cpe:dataPublicacaoEdital>2023-01-01</cpe:dataPublicacaoEdital>
-      <cpe:meioPublicacaoEdital>Diï¿½rio Oficial</cpe:meioPublicacaoEdital>
+      <cpe:dataPublicacaoEdital>2023-08-25</cpe:dataPublicacaoEdital>
+      <cpe:meioPublicacaoEdital>Diï¿½rio Oficial da Prefeitura de Caraguatatuba</cpe:meioPublicacaoEdital>
     </cpe:edital>
   </cpe:DadosConcursoPublicoEfetivo>
   <cpe:ListaCargos>
     <cpe:Cargo>
       <cpe:CargoEdital>
         <ap:EntidadePrevista>
-          <ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
-          <ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+          <ap:CodigoEntidadePrevista>3252</ap:CodigoEntidadePrevista>
+          <ap:CodigoMunicipioEntidadePrevista>6311</ap:CodigoMunicipioEntidadePrevista>
         </ap:EntidadePrevista>
         <ap:codigoCargo>1</ap:codigoCargo>
       </cpe:CargoEdital>
@@ -48,23 +47,29 @@
     <cpe:DadosClassificacao>
       <lcl:CargoFuncaoEdital>
         <ap:EntidadePrevista>
-          <ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
-          <ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+          <ap:CodigoEntidadePrevista>1</ap:CodigoEntidadePrevista>
+          <ap:CodigoMunicipioEntidadePrevista>6311</ap:CodigoMunicipioEntidadePrevista>
         </ap:EntidadePrevista>
         <ap:codigoCargo>1</ap:codigoCargo>
       </lcl:CargoFuncaoEdital>
-      <lcl:dataPublicacaoListaClassificacao>2023-01-01</lcl:dataPublicacaoListaClassificacao>
-      <lcl:dataAtoHomologacaoConcurso>2023-01-01</lcl:dataAtoHomologacaoConcurso>
-      <lcl:dataValidadeInicial>2023-01-01</lcl:dataValidadeInicial>
-      <lcl:dataPublicacaoHomologacao>2023-01-01</lcl:dataPublicacaoHomologacao>
-      <!-- opcional -->
+      <lcl:dataPublicacaoListaClassificacao>2024-03-24</lcl:dataPublicacaoListaClassificacao>
+      <lcl:dataAtoHomologacaoConcurso>2024-06-03</lcl:dataAtoHomologacaoConcurso>
+      <lcl:dataValidadeInicial>2024-06-03</lcl:dataValidadeInicial>
+      <lcl:dataPublicacaoHomologacao>2024-06-03</lcl:dataPublicacaoHomologacao>
       <lcl:cpfResponsavelHomologacao Tipo="02">
-        <gen:Numero>00000000191</gen:Numero>
+        <gen:Numero>28593706843</gen:Numero>
       </lcl:cpfResponsavelHomologacao>
       <lcl:codigoCargoResponsavelHomologacao>1</lcl:codigoCargoResponsavelHomologacao>
-      <!--lcl:codigoFuncaoResponsavelHomologacao>1</lcl:codigoFuncaoResponsavelHomologacao-->
+      <lcl:codigoFuncaoResponsavelHomologacao>2</lcl:codigoFuncaoResponsavelHomologacao>
     </cpe:DadosClassificacao>
     <cpe:Classificados>
+      <lcl:Classificado>
+        <lcl:cpfClassificado Tipo="02">
+          <gen:Numero>00000000191</gen:Numero>
+        </lcl:cpfClassificado>
+        <lcl:nomeClassificado>Nome</lcl:nomeClassificado>
+        <lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+      </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>45174794805</gen:Numero>
@@ -76,7 +81,7 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>04221896507</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Custódio Moreira Brasileiro Silva</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Custï¿½dio Moreira Brasileiro Silva</lcl:nomeClassificado>
         <lcl:ordemClassificacao>2</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -139,7 +144,7 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>42244259803</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Felipe Gonçalves De Lima</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Felipe Gonï¿½alves De Lima</lcl:nomeClassificado>
         <lcl:ordemClassificacao>11</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -188,14 +193,14 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>32943201839</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>João Roberto Monteiro Da Silva Barbosa</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Joï¿½o Roberto Monteiro Da Silva Barbosa</lcl:nomeClassificado>
         <lcl:ordemClassificacao>18</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>02009241177</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Marcelo José Mendes Santiago</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Marcelo Josï¿½ Mendes Santiago</lcl:nomeClassificado>
         <lcl:ordemClassificacao>19</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -216,7 +221,7 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>79151639653</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Hélio Eduardo De Paiva Araújo</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Hï¿½lio Eduardo De Paiva Araï¿½jo</lcl:nomeClassificado>
         <lcl:ordemClassificacao>22</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -272,14 +277,14 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>44557178898</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Heloísa De Melo Freire</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Heloï¿½sa De Melo Freire</lcl:nomeClassificado>
         <lcl:ordemClassificacao>30</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>11168095670</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Daniel Araújo De Assis</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Daniel Araï¿½jo De Assis</lcl:nomeClassificado>
         <lcl:ordemClassificacao>31</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -363,14 +368,14 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>31141745828</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Natália Pessanha Leite Minari</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Natï¿½lia Pessanha Leite Minari</lcl:nomeClassificado>
         <lcl:ordemClassificacao>43</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>87876418600</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Pollyanna Cristina Döhler De Oliveira</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Pollyanna Cristina Dï¿½hler De Oliveira</lcl:nomeClassificado>
         <lcl:ordemClassificacao>44</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -412,7 +417,7 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>44748096888</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>José Carlos Jancovic Pena</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Josï¿½ Carlos Jancovic Pena</lcl:nomeClassificado>
         <lcl:ordemClassificacao>50</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -426,7 +431,7 @@
         <lcl:cpfClassificado Tipo="02">
           <gen:Numero>14316549812</gen:Numero>
         </lcl:cpfClassificado>
-        <lcl:nomeClassificado>Getúlio Barreto Dos Santos</lcl:nomeClassificado>
+        <lcl:nomeClassificado>Getï¿½lio Barreto Dos Santos</lcl:nomeClassificado>
         <lcl:ordemClassificacao>52</lcl:ordemClassificacao>
       </lcl:Classificado>
       <lcl:Classificado>
@@ -564,6 +569,5 @@
       <ap:diaPrazo>0</ap:diaPrazo>
     </pro:dtPrazoProrrogValidade>
     <pro:dtPublicProrrogConcurso>2023-01-01</pro:dtPublicProrrogConcurso>
-    <!-- opcional -->
   </cpe:PrazoProrrogacao>
 </cpe:ConcursoPublicoEfetivo>
