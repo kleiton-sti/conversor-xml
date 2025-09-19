@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lcl:ListaClassificacao 
+	xmlns:lcl="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao"
+	xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico"
+	xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao ../processoselecao/AUDESP_LISTA_CLASSIFICACAO_2025_A.XSD">
+    <lcl:Descritor>
+        <gen:AnoExercicio>2025</gen:AnoExercicio>
+        <gen:TipoDocumento>Lista de Classifica��o</gen:TipoDocumento>
+        <gen:Entidade>10048</gen:Entidade>
+        <gen:Municipio>7107</gen:Municipio>
+        <gen:DataCriacaoXML>2024-12-12</gen:DataCriacaoXML>
+    </lcl:Descritor>
+	<lcl:TipoProcessoSelecao>3</lcl:TipoProcessoSelecao>
+	<lcl:IdentificacaoProcessoSelecao>
+		<ap:numeroProcessoSelecao>789</ap:numeroProcessoSelecao>
+		<ap:anoProcessoSelecao>2025</ap:anoProcessoSelecao>
+	</lcl:IdentificacaoProcessoSelecao>
+	<lcl:Classificacao>
+		<lcl:DadosClassificacao>
+			<lcl:CargoFuncaoEdital>
+				<ap:EntidadePrevista>
+					<ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
+					<ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+				</ap:EntidadePrevista>
+				<!--ap:codigoCargo>1</ap:codigoCargo-->
+				<ap:codigoFuncao>1</ap:codigoFuncao>
+			</lcl:CargoFuncaoEdital>	
+			<lcl:dataPublicacaoListaClassificacao>2025-01-01</lcl:dataPublicacaoListaClassificacao>
+			<lcl:dataAtoHomologacaoConcurso>2025-01-01</lcl:dataAtoHomologacaoConcurso>
+			<lcl:dataValidadeInicial>2026-01-01</lcl:dataValidadeInicial>
+			<lcl:dataPublicacaoHomologacao>2025-01-01</lcl:dataPublicacaoHomologacao> <!-- opcional -->
+			<lcl:cpfResponsavelHomologacao Tipo="02">
+				<gen:Numero>98765432100</gen:Numero>
+			</lcl:cpfResponsavelHomologacao>
+			<lcl:codigoCargoResponsavelHomologacao>0</lcl:codigoCargoResponsavelHomologacao>
+		</lcl:DadosClassificacao>
+		<lcl:Classificados>
+			
+		</lcl:Classificados>	
+	</lcl:Classificacao>
+</lcl:ListaClassificacao>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lcl:ListaClassificacao 
+	xmlns:lcl="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao"
+	xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico"
+	xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/listaclassificacao ../processoselecao/AUDESP_LISTA_CLASSIFICACAO_2025_A.XSD">
+    <lcl:Descritor>
+        <gen:AnoExercicio>2025</gen:AnoExercicio>
+        <gen:TipoDocumento>Lista de Classificação</gen:TipoDocumento>
+        <gen:Entidade>10048</gen:Entidade>
+        <gen:Municipio>7107</gen:Municipio>
+        <gen:DataCriacaoXML>2024-12-12</gen:DataCriacaoXML>
+    </lcl:Descritor>
+	<lcl:TipoProcessoSelecao>3</lcl:TipoProcessoSelecao>
+	<lcl:IdentificacaoProcessoSelecao>
+		<ap:numeroProcessoSelecao>789</ap:numeroProcessoSelecao>
+		<ap:anoProcessoSelecao>2025</ap:anoProcessoSelecao>
+	</lcl:IdentificacaoProcessoSelecao>
+	<lcl:Classificacao>
+		<lcl:DadosClassificacao>
+			<lcl:CargoFuncaoEdital>
+				<ap:EntidadePrevista>
+					<ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
+					<ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+				</ap:EntidadePrevista>
+				<!--ap:codigoCargo>1</ap:codigoCargo-->
+				<ap:codigoFuncao>1</ap:codigoFuncao>
+			</lcl:CargoFuncaoEdital>	
+			<lcl:dataPublicacaoListaClassificacao>2025-01-01</lcl:dataPublicacaoListaClassificacao>
+			<lcl:dataAtoHomologacaoConcurso>2025-01-01</lcl:dataAtoHomologacaoConcurso>
+			<lcl:dataValidadeInicial>2026-01-01</lcl:dataValidadeInicial>
+			<lcl:dataPublicacaoHomologacao>2025-01-01</lcl:dataPublicacaoHomologacao> <!-- opcional -->
+			<lcl:cpfResponsavelHomologacao Tipo="02">
+				<gen:Numero>98765432100</gen:Numero>
+			</lcl:cpfResponsavelHomologacao>
+			<lcl:codigoCargoResponsavelHomologacao>0</lcl:codigoCargoResponsavelHomologacao>
+		</lcl:DadosClassificacao>
+		<lcl:Classificados>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000191</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 1</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>1</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000272</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 2</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>2</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>2</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000353</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 3</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>3</lcl:ordemClassificacao>
+			</lcl:Classificado>
+		</lcl:Classificados>	
+	</lcl:Classificacao>
+	<lcl:Classificacao>
+		<lcl:DadosClassificacao>
+			<lcl:CargoFuncaoEdital>
+				<ap:EntidadePrevista>
+					<ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
+					<ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+				</ap:EntidadePrevista>
+				<!--ap:codigoCargo>1</ap:codigoCargo-->
+				<ap:codigoFuncao>2</ap:codigoFuncao>
+			</lcl:CargoFuncaoEdital>	
+			<lcl:dataPublicacaoListaClassificacao>2025-01-01</lcl:dataPublicacaoListaClassificacao>
+			<lcl:dataAtoHomologacaoConcurso>2025-01-01</lcl:dataAtoHomologacaoConcurso>
+			<lcl:dataValidadeInicial>2026-01-01</lcl:dataValidadeInicial>
+			<lcl:dataPublicacaoHomologacao>2025-01-01</lcl:dataPublicacaoHomologacao> <!-- opcional -->
+			<lcl:cpfResponsavelHomologacao Tipo="02">
+				<gen:Numero>98765432100</gen:Numero>
+			</lcl:cpfResponsavelHomologacao>
+			<lcl:codigoCargoResponsavelHomologacao>0</lcl:codigoCargoResponsavelHomologacao>
+		</lcl:DadosClassificacao>
+		<lcl:Classificados>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000434</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 4</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>1</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000515</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 5</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>2</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>2</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000604</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 6</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>3</lcl:ordemClassificacao>
+			</lcl:Classificado>
+		</lcl:Classificados>	
+	</lcl:Classificacao>
+	<lcl:Classificacao>
+		<lcl:DadosClassificacao>
+			<lcl:CargoFuncaoEdital>
+				<ap:EntidadePrevista>
+					<ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
+					<ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+				</ap:EntidadePrevista>
+				<!--ap:codigoCargo>1</ap:codigoCargo-->
+				<ap:codigoFuncao>3</ap:codigoFuncao>
+			</lcl:CargoFuncaoEdital>	
+			<lcl:dataPublicacaoListaClassificacao>2025-01-01</lcl:dataPublicacaoListaClassificacao>
+			<lcl:dataAtoHomologacaoConcurso>2025-01-01</lcl:dataAtoHomologacaoConcurso>
+			<lcl:dataValidadeInicial>2026-01-01</lcl:dataValidadeInicial>
+			<lcl:dataPublicacaoHomologacao>2025-01-01</lcl:dataPublicacaoHomologacao> <!-- opcional -->
+			<lcl:cpfResponsavelHomologacao Tipo="02">
+				<gen:Numero>98765432100</gen:Numero>
+			</lcl:cpfResponsavelHomologacao>
+			<lcl:codigoCargoResponsavelHomologacao>0</lcl:codigoCargoResponsavelHomologacao>
+		</lcl:DadosClassificacao>
+		<lcl:Classificados>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000787</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 7</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>1</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>1</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000868</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 8</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>2</lcl:ordemClassificacao>
+				<!--lcl:codigoTipoGrupoEspecial>2</lcl:codigoTipoGrupoEspecial-->
+			</lcl:Classificado>
+			<lcl:Classificado>
+				<lcl:cpfClassificado Tipo="02">
+					<gen:Numero>00000000949</gen:Numero>
+				</lcl:cpfClassificado>
+				<lcl:nomeClassificado>Nome do classificado 9</lcl:nomeClassificado>
+				<lcl:ordemClassificacao>3</lcl:ordemClassificacao>
+			</lcl:Classificado>
+		</lcl:Classificados>	
+	</lcl:Classificacao>
+</lcl:ListaClassificacao>
