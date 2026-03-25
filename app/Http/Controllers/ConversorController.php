@@ -2,152 +2,74 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\XmlRequest;
+use App\Services\GerarXmlDinamicoService;
+use Illuminate\Routing\Controller;
 use App\Services\LoadFileService;
+use App\Services\XmlGeneratorService;
+use Illuminate\Http\Request;
 
 class ConversorController extends Controller {
-    public array $data;
-    public $xml;
-    public $namespace;
 
-    public function __construct() {
-        //Carrega dados da planilha
-        $this->data = (new LoadFileService())->reader();
+    /**
+     * Exibe o formulário de upload
+     */
+    public function index() {
+        return view('conversor.index');
     }
 
-    public function addClassificados() {
+    /**
+     * Recebe o XML base + planilha, gera o XML de saída e retorna para download
+     */
+    public function processar(XmlRequest $request) {
 
-    // Dados da planilha
-    $data = $this->data;
-    
-    // Caminho para o arquivo XML
-    $xmlFilePath = base_path("storage/xml/se_ListaClassificação_2025_modelo.xml");
+        try {
+            // ── Salva arquivos temporários ────────────────────────────────────
+            $xmlBasePath  = $request->file('xml_base')->store('temp_uploads', 'local');
+            $planilhaPath = $request->file('planilha')->store('temp_uploads', 'local');
 
-    // Cria um objeto DOM bem estruturado
-    $dom = new \DOMDocument('1.0','UTF-8');
-    $dom->preserveWhiteSpace = false;
-    $dom->formatOutput = true;
-    
+            $xmlBaseFullPath  = storage_path("app/private/{$xmlBasePath}");
+            $planilhaFullPath = storage_path("app/private/{$planilhaPath}");
 
-    // Carrega XML com SimpleXML para manipulação mais simples
-    $this->xml = simplexml_load_file($xmlFilePath);
+            // ── Lê a planilha ─────────────────────────────────────────────────
+          $data = (new LoadFileService($planilhaPath))->readerWithHeader();
 
-    // Recupera namespaces
-    $this->namespace = $this->xml->getNamespaces(true);
+            if (empty($data)) {
+                throw new \RuntimeException('A planilha está vazia ou não possui dados após o cabeçalho.');
+            }
 
-    // Descritor do XML
-    $descritor = $this->xml->children($this->namespace['lcl'])->Descritor ?? null;
-    $descritor->children($this->namespace['gen'])-> AnoExercicio = $this->data[0]["A"];
-    $descritor->children($this->namespace['gen'])-> TipoDocumento = $this->data[0]["B"];
-    $descritor->children($this->namespace['gen'])-> Entidade = $this->data[0]["C"];
-    $descritor->children($this->namespace['gen'])-> Municipio = $this->data[0]["D"];
-    $descritor->children($this->namespace['gen'])-> DataCriacaoXML = date('Y-m-d');
+            // ── Gera o XML ────────────────────────────────────────────────────
+            $outputFileName = 'xmlConverted_' . date('Ymd_His') . '.xml';
+            $outputPath     = storage_path("xml/{$outputFileName}");
 
-    //Tipo Processo Selecao do XML
-    $tipoProcessoSelecao = $this->xml->children($this->namespace['lcl'])->TipoProcessoSelecao ?? null;
-    $tipoProcessoSelecao = $this->data[0]["F"];
+            // Garante que o diretório existe
+            if (!is_dir(storage_path('xml'))) {
+                mkdir(storage_path('xml'), 0755, true);
+            }
 
-    // IdentificacaoConcursoPublicoEfetivo do XML
-    $IdentificacaoProcessoSelecao = $this->xml->children($this->namespace['lcl'])->IdentificacaoProcessoSelecao ?? null;
-    $IdentificacaoProcessoSelecao->children($this->namespace['ap'])->numeroProcessoSelecao = $this->data[0]["G"];
-    $IdentificacaoProcessoSelecao->children($this->namespace['ap'])->anoProcessoSelecao = $this->data[0]["H"];
+         $generator = new GerarXmlDinamicoService();
+            $generator->CarregaXmlBase($xmlBaseFullPath);
+            $xmlContent = $generator->generate($data, $outputPath);
 
-    // Dados do concurso do XML
-    // $dadosConcursoPublicoEfetivo = $this->xml->children($this->namespace['cpe'])->DadosConcursoPublicoEfetivo ?? null;
-    // $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->pctVagasEspeciaisAfro = $this->data[0]["H"];
-    // $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->pctVagasEspeciaisDef = $this->data[0]["I"];
-    // $dadosConcursoPublicoEfetivo->children($this->namespace['cpe'])->codigoFatorArredondamento = $this->data[0]["J"];
+            // ── Remove temporários ────────────────────────────────────────────
+            @unlink($xmlBaseFullPath);
+            @unlink($planilhaFullPath);
 
-    // $prazoValidadeInicial = $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->prazoValidadeInicial ?? null;
-    // $prazoValidadeInicial->children($this->namespace["ap"])->anoPrazo = $this->data[0]["K"];
-    // $prazoValidadeInicial->children($this->namespace["ap"])->mesPrazo = $this->data[0]["L"];
-    // $prazoValidadeInicial->children($this->namespace["ap"])->diaPrazo = $this->data[0]["M"];
+            // ── Retorna para download ─────────────────────────────────────────
+            return response()->streamDownload(
+                function () use ($xmlContent) { echo $xmlContent; },
+                $outputFileName,
+                ['Content-Type' => 'application/xml']
+            );
 
-    // $prazoPrevistoProrrogacao = $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->prazoPrevistoProrrogacao ?? null;
-    // $prazoPrevistoProrrogacao->children($this->namespace["ap"])->anoPrazo = $this->data[0]["N"];
-    // $prazoPrevistoProrrogacao->children($this->namespace["ap"])->mesPrazo = $this->data[0]["O"];
-    // $prazoPrevistoProrrogacao->children($this->namespace["ap"])->diaPrazo = $this->data[0]["P"];
+        } catch (\Throwable $e) {
+            // Remove temporários em caso de erro
+            if (isset($xmlBaseFullPath) && file_exists($xmlBaseFullPath))  @unlink($xmlBaseFullPath);
+            if (isset($planilhaFullPath) && file_exists($planilhaFullPath)) @unlink($planilhaFullPath);
 
-    // $edital = $dadosConcursoPublicoEfetivo->children($this->namespace["cpe"])->edital ?? null;
-    // $edital->children($this->namespace["cpe"])->dataPublicacaoEdital = $this->data[0]["Q"];
-    // $edital->children($this->namespace["cpe"])->meioPublicacaoEdital = $this->data[0]["R"];
-
-
-
-    // // Lista de cargos do XML
-    // $listaCargos = $this->xml->children($this->namespace['cpe'])-> ListaCargos ?? null;
-    // $cargo = $listaCargos->children($this->namespace['cpe'])-> Cargo ?? null;
-    // $cargoEdital = $cargo->children($this->namespace['cpe'])-> CargoEdital ?? null;
- 
-    // $entidadePrevista = $cargoEdital->children($this->namespace['ap'])-> EntidadePrevista;
-    // $entidadePrevista->children($this->namespace['ap'])->CodigoEntidadePrevista = $this->data[0]["S"];
-    // $entidadePrevista->children($this->namespace['ap'])->CodigoMunicipioEntidadePrevista = $this->data[0]["T"];
-
-    // $cargoEdital->children($this->namespace['ap'])-> codigoCargo = $this->data[0]["U"];
-
-    // $cargo->children($this->namespace['cpe'])->permiteAtribPontoTitulo = $this->data[0]["V"];
-    // $cargo->children($this->namespace['cpe'])->numVagasCargoFuncao = $this->data[0]["W"];
-   
-    // Classificados do XML
-    $classificacao = $this->xml->children($this->namespace['lcl'])-> Classificacao ?? null;
-    $dadosClassificacao = $classificacao->children($this->namespace['lcl'])-> DadosClassificacao ?? null;
-    $cargoFuncaoEdital = $dadosClassificacao->children($this->namespace['lcl'])-> CargoFuncaoEdital ?? null;
-    $entidadePrevista = $cargoFuncaoEdital->children($this->namespace['ap'])-> EntidadePrevista ?? null;
-    $entidadePrevista->children($this->namespace['ap'])-> CodigoEntidadePrevista = $this->data[0]["I"];
-    $entidadePrevista->children($this->namespace["ap"])-> CodigoMunicipioEntidadePrevista = $this->data[0]["J"];
-
-    $cargoFuncaoEdital->children($this->namespace['ap'])-> codigoFuncao = $this->data[0]["K"];
-
-    $dadosClassificacao->children($this->namespace['lcl'])-> dataPublicacaoListaClassificacao = $this->data[0]["L"];
-    $dadosClassificacao->children($this->namespace['lcl'])-> dataAtoHomologacaoConcurso = $this->data[0]["M"];
-    $dadosClassificacao->children($this->namespace['lcl'])-> dataValidadeInicial = $this->data[0]["N"];
-    $dadosClassificacao->children($this->namespace['lcl'])-> dataPublicacaoHomologacao = $this->data[0]["O"];
-    
-    $cpfResponsavelHomologacao = $dadosClassificacao->children($this->namespace['lcl'])-> cpfResponsavelHomologacao ?? null;
-    $cpfResponsavelHomologacao->children($this->namespace['gen'])-> Numero = $this->data[0]["Q"];
-    $dadosClassificacao->children($this->namespace['lcl'])-> codigoCargoResponsavelHomologacao = $this->data[0]["R"];
-    // $dadosClassificacao->children($this->namespace['lcl'])-> codigoFuncaoResponsavelHomologacao = $this->data[0]["AH"];
-
-    $classificados = $classificacao->children($this->namespace['lcl'])-> Classificados ?? null;
-
-   
-    // Adiciona os classificados do array ao XML
-    for ($i = 0; $i < count($data); $i++) {
-        $novo = $classificados->addChild('lcl:Classificado', null, $this->namespace['lcl']);
-        $cpf = $novo->addChild('lcl:cpfClassificado', null, $this->namespace['lcl']);
-        
-        // Adiciona o atributo Tipo="02" no nó cpfClassificado
-        $cpfDom = dom_import_simplexml($cpf);
-        $cpfDom->setAttribute('Tipo', '02');
-
-        $cpf->addChild('gen:Numero', $data[$i]["T"], $this->namespace['gen']);
-
-        $novo->addChild('lcl:nomeClassificado', $data[$i]["U"], $this->namespace['lcl']);
-        $novo->addChild('lcl:ordemClassificacao', $data[$i]["V"], $this->namespace['lcl']);
+            return back()
+                ->withInput()
+                ->withErrors(['erro' => 'Erro ao gerar o XML: ' . $e->getMessage()]);
+        }
     }
-
-
-    // // Dados do prazo de prorrogação do XML
-    // $prazoProrrogacao = $this->xml->children($this->namespace['cpe'])-> PrazoProrrogacao ?? null;
-    // $dtPrazoProrrogValidade = $prazoProrrogacao->children($this->namespace['pro'])-> dtPrazoProrrogValidade ?? null;
-    // $dtPrazoProrrogValidade->children($this->namespace['ap'])-> anoPrazo = $this->data[0]["N"];
-    // $dtPrazoProrrogValidade->children($this->namespace['ap'])-> mesPrazo = $this->data[0]["O"];
-    // $dtPrazoProrrogValidade->children($this->namespace['ap'])-> diaPrazo = $this->data[0]["P"];
-
-
-    
-
-    // Salva o XML modificado temporariamente em string
-    $xmlString = $this->xml->asXML();
-
-    // Carrega a string XML no DOM para aplicar a formatação (identação)
-    $dom->loadXML($xmlString);
-
-    // Salva o XML formatado no arquivo desejado
-    $dom->save(base_path("storage/xml/xmlConverted.xml"));
-
-    dd('XML gerado com sucesso');
-}
-
-    
 }

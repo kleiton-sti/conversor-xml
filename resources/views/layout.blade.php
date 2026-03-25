@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel - Base</title>
+    <title>Conversor XML</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,9 +16,6 @@
     <link rel="stylesheet" href={{asset("/css/adminlte.css")}}>
 
     <link rel="stylesheet" href="{{asset("/css/datatables-bs4/dataTables.bootstrap4.css")}}">
-
-
-
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -37,12 +34,8 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href={{route('home')}} class="nav-link">Início</a>
+                    <a href={{route('conversor.index')}} class="nav-link">Início</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href={{route('logout')}} class="nav-link">Sair</a>
-                </li>
-
             </ul>
 
             <!-- Right navbar links -->
@@ -83,33 +76,25 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href={{route('home')}} class="brand-link">
+            <a href={{route('conversor.index')}} class="brand-link">
                 <img src={{asset("/img/brasao.png")}} alt="brasão Prefeitura Caraguatatuba" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Laravel - Base</span>
+                <span class="brand-text font-weight-light">Conversor - XML</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="info">
-                        <p><a href="" class="d-block">{{Auth::user()->nome}} - {{Auth::user()->registro}}</a></p>
-                        <p><a href="" class="d-block">{{Auth::user()->setor->unidade->entidade->entidade}}</a></p>
-                        <p><a href="" class="d-block">{{Auth::user()->setor->setor}}</a></p>
-                    </div>
-                </div>
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-wrench"></i>
-                                <p>
-                                    Configurações
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                            <a href="{{ route('conversor.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-file-code"></i>
+                                <p>Conversor XML</p>
                             </a>
+                        </li>
+                        <li class="nav-item">
                             <ul class="nav nav-treeview" style="display: none;">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
@@ -265,7 +250,6 @@
     </div>
     <!-- ./wrapper -->
 
-    @include('modal')
 
     <!-- jQuery -->
     <script src={{asset("/js/jquery/jquery.min.js")}}></script>
@@ -284,6 +268,7 @@
     <script src={{asset("/js/datatables/dataTables.bootstrap4.min.js")}}></script>
     <script src={{asset("/js/dataTables.js")}}></script>
     <script src={{asset("/js/modal-confirmacao.js")}}></script>
+    @stack('scripts')
 </body>
 
 </html>
