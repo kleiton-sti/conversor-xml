@@ -4,16 +4,13 @@ namespace App\Services;
 
 use DOMDocument;
 use SimpleXMLElement;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 /**
  * XmlGeneratorDinamicoService
  *
  * Versão genérica do gerador de XML.
  *
- * DIFERENÇA em relação ao XmlGeneratorService original:
- *   - O original tem o mapeamento FIXO no código: coluna A → AnoExercicio, etc.
- *   - Este service é DINÂMICO: o próprio cabeçalho da planilha diz qual coluna
- *     vai para qual tag XML. Não precisa alterar código para mudar o mapeamento.
  *
  * COMO FUNCIONA (resumo simples):
  *   1. Carrega o XML base e varre todos os seus nós terminais (sem filhos),
@@ -105,7 +102,7 @@ class XmlGeneratorDinamicoService
         // true = recursivo (pega namespaces de todos os níveis, não só do nó raiz)
         $this->namespaces = $this->xml->getNamespaces(true);
 
-        // Varre o XML e preenche $this->mapaDeNos com todos os nós terminais
+        // // 
         $this->mapaDeNos = [];
         $this->varrerNosTerminais($this->xml);
     }
@@ -369,7 +366,7 @@ class XmlGeneratorDinamicoService
 
         // Caso 1: número serial do Excel
         if (is_numeric($valor)) {
-            $data = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject((float)$valor);
+            $data = Date::excelToDateTimeObject((float)$valor);
             return $data->format('Y-m-d');
         }
 

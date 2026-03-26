@@ -111,7 +111,7 @@ class LoadFileService
             // Se a linha tiver menos colunas que o cabeçalho, preenche com null no final
             $linha = array_pad($linha, count($cabecalhos), null);
 
-            // Se a linha tiver mais colunas que o cabeçalho, corta o excesso
+            // Se o caebçalho for menor que a linha, corta o excesso
             $linha = array_slice($linha, 0, count($cabecalhos));
 
             // Combina cabeçalho com valores: ['AnoExercicio' => '2024', ...]
@@ -119,22 +119,6 @@ class LoadFileService
         }
 
         return $dados;
-    }
-
-    // -------------------------------------------------------------------------
-    // MÉTODOS ANTIGOS (mantidos para não quebrar nada que já usa eles)
-    // -------------------------------------------------------------------------
-
-    /** @deprecated Use lerPorLetras() */
-    public function reader(): array
-    {
-        return $this->lerPorLetras();
-    }
-
-    /** @deprecated Use lerComCabecalho() */
-    public function readerWithHeader(): array
-    {
-        return $this->lerComCabecalho();
     }
 
     // -------------------------------------------------------------------------

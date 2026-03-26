@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\XmlRequest;
 use App\Services\GerarXmlDinamicoService;
+use App\Services\XmlGeneratorDinamicoService;
 use Illuminate\Routing\Controller;
 use App\Services\LoadFileService;
 use App\Services\XmlGeneratorService;
@@ -32,7 +33,7 @@ class ConversorController extends Controller {
             $planilhaFullPath = storage_path("app/private/{$planilhaPath}");
 
             // ── Lê a planilha ─────────────────────────────────────────────────
-          $data = (new LoadFileService($planilhaPath))->readerWithHeader();
+          $data = (new LoadFileService($planilhaPath))->lerComCabecalho();
 
             if (empty($data)) {
                 throw new \RuntimeException('A planilha está vazia ou não possui dados após o cabeçalho.');
@@ -47,9 +48,9 @@ class ConversorController extends Controller {
                 mkdir(storage_path('xml'), 0755, true);
             }
 
-         $generator = new GerarXmlDinamicoService();
-            $generator->CarregaXmlBase($xmlBaseFullPath);
-            $xmlContent = $generator->generate($data, $outputPath);
+         $generator = new XmlGeneratorDinamicoService();
+            $generator->carregarBase($xmlBaseFullPath);
+            $xmlContent = $generator->gerar($data, $outputPath);
 
             // ── Remove temporários ────────────────────────────────────────────
             @unlink($xmlBaseFullPath);
