@@ -111,56 +111,6 @@
                         </div>
                     </div>
 
-                    {{-- Tabela de mapeamento --}}
-                    <div class="card card-secondary card-outline mt-3 mb-4">
-                        <div class="card-header p-2">
-                            <a data-toggle="collapse" href="#tabelaMapeamento" class="text-dark">
-                                <i class="fas fa-table mr-1"></i>
-                                <strong>Ver mapeamento esperado da planilha</strong>
-                                <i class="fas fa-chevron-down float-right mt-1"></i>
-                            </a>
-                        </div>
-                        <div class="collapse" id="tabelaMapeamento">
-                            <div class="card-body p-0">
-                                <table class="table table-sm table-bordered table-striped mb-0">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>Coluna</th>
-                                            <th>Campo XML</th>
-                                            <th>Observação</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr><td><strong>A</strong></td><td>AnoExercicio</td><td>Ex: 2025</td></tr>
-                                        <tr><td><strong>B</strong></td><td>TipoDocumento</td><td>Ex: Lista de Classificação</td></tr>
-                                        <tr><td><strong>C</strong></td><td>Entidade</td><td>Código da entidade</td></tr>
-                                        <tr><td><strong>D</strong></td><td>Município</td><td>Código do município</td></tr>
-                                        <tr><td><strong>F</strong></td><td>TipoProcessoSelecao</td><td>Ex: 3</td></tr>
-                                        <tr><td><strong>G</strong></td><td>numeroProcessoSelecao</td><td></td></tr>
-                                        <tr><td><strong>H</strong></td><td>anoProcessoSelecao</td><td></td></tr>
-                                        <tr><td><strong>I</strong></td><td>CodigoEntidadePrevista</td><td></td></tr>
-                                        <tr><td><strong>J</strong></td><td>CodigoMunicipioEntidadePrevista</td><td></td></tr>
-                                        <tr><td><strong>K</strong></td><td>codigoFuncao</td><td></td></tr>
-                                        <tr><td><strong>L</strong></td><td>dataPublicacaoListaClassificacao</td><td>Formato: dd/mm/aaaa ou data Excel</td></tr>
-                                        <tr><td><strong>M</strong></td><td>dataAtoHomologacaoConcurso</td><td>Formato: dd/mm/aaaa ou data Excel</td></tr>
-                                        <tr><td><strong>N</strong></td><td>dataValidadeInicial</td><td>Formato: dd/mm/aaaa ou data Excel</td></tr>
-                                        <tr><td><strong>O</strong></td><td>dataPublicacaoHomologacao</td><td>Formato: dd/mm/aaaa (opcional)</td></tr>
-                                        <tr><td><strong>Q</strong></td><td>CPF Responsável Homologação</td><td>Apenas números</td></tr>
-                                        <tr><td><strong>R</strong></td><td>codigoCargoResponsavelHomologacao</td><td></td></tr>
-                                        <tr class="table-info"><td><strong>T</strong></td><td>CPF Classificado</td><td>Repetir por linha</td></tr>
-                                        <tr class="table-info"><td><strong>U</strong></td><td>Nome Classificado</td><td>Repetir por linha</td></tr>
-                                        <tr class="table-info"><td><strong>V</strong></td><td>Ordem de Classificação</td><td>Repetir por linha</td></tr>
-                                    </tbody>
-                                </table>
-                                <p class="p-2 mb-0 text-muted small">
-                                    <i class="fas fa-info-circle"></i>
-                                    As colunas em azul (<strong>T, U, V</strong>) se repetem para cada classificado.
-                                    As demais colunas utilizam os valores da primeira linha de dados.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary" id="btnGerar">
