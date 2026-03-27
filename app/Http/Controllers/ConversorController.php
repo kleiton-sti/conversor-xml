@@ -33,7 +33,7 @@ class ConversorController extends Controller {
             $planilhaFullPath = storage_path("app/private/{$planilhaPath}");
 
             // ── Lê a planilha ─────────────────────────────────────────────────
-          $data = (new LoadFileService($planilhaPath))->lerComCabecalho();
+          $data = (new LoadFileService($planilhaFullPath))->lerComCabecalho();
 
             if (empty($data)) {
                 throw new \RuntimeException('A planilha está vazia ou não possui dados após o cabeçalho.');

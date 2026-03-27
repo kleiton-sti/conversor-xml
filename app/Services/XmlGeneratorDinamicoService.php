@@ -90,13 +90,20 @@ class XmlGeneratorDinamicoService
             $conteudo = preg_replace('/encoding=["\'][^"\']+["\']/', 'encoding="UTF-8"', $conteudo);
         }
 
+        libxml_use_internal_errors(true);
+        libxml_clear_errors();
+
         // Converte a string XML em objeto PHP para podermos navegar nele
         // LIBXML_NOCDATA faz seções CDATA aparecerem como texto normal
         $this->xml = simplexml_load_string($conteudo, 'SimpleXMLElement', LIBXML_NOCDATA);
 
         if (!$this->xml) {
-            throw new \RuntimeException("Falha ao ler o XML base. Verifique se o arquivo é um XML válido.");
+            $erros = array_map(fn($e) => "Linha {$e->line}: " . trim($e->message), libxml_get_errors());
+            libxml_clear_errors();
+            throw new \RuntimeException("Falha ao ler o XML base. " . implode(' | ', $erros));
         }
+
+        libxml_clear_errors();
 
         // getNamespaces(true) retorna TODOS os namespaces do XML, inclusive os aninhados
         // true = recursivo (pega namespaces de todos os níveis, não só do nó raiz)
