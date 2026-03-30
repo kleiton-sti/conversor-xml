@@ -41,7 +41,9 @@ class XmlGeneratorDinamicoService
 {
     protected SimpleXMLElement $xml;
     protected array $namespaces = [];
-    protected array $mapaDeNos  = [];
+    protected array $mapaDeNos = [];
+
+
 
     const PREFIXO_LOOP = '[loop]';
 
@@ -62,78 +64,35 @@ class XmlGeneratorDinamicoService
                 throw new \RuntimeException("Não foi possível ler o arquivo XML base: {$caminhoXml}");
             }
 
-            $encoding = 'UTF-8';
+
+            $encoding = "UTF-8";
             if (preg_match('/encoding=["\']([^"\']+)["\']/', $conteudo, $encontrado)) {
                 $encoding = strtoupper($encontrado[1]);
             }
 
-            if ($encoding !== 'UTF-8') {
+            if ($encoding !== "UTF-8") {
                 $conteudo = mb_convert_encoding($conteudo, 'UTF-8', $encoding);
                 $conteudo = preg_replace('/encoding=["\'][^"\']+["\']/', 'encoding="UTF-8"', $conteudo);
             }
 
-            libxml_use_internal_errors(true);
-            libxml_clear_errors();
-
+       
             $this->xml = simplexml_load_string($conteudo, 'SimpleXMLElement', LIBXML_NOCDATA);
 
-            if (!$this->xml) {
-                $erros = array_map(
-                    fn($e) => "Linha {$e->line} col {$e->column}: " . trim($e->message),
-                    libxml_get_errors()
-                );
-                libxml_clear_errors();
+            if ($this->xml === false) {
+                $erros = libxml_get_errors();
                 throw new \RuntimeException("Falha ao ler o XML base. " . implode(' | ', $erros));
             }
 
-            libxml_clear_errors();
-
             $this->namespaces = $this->xml->getNamespaces(true);
-            $this->mapaDeNos  = [];
+            $this->mapaDeNos = [];
             $this->varrerNosTerminais($this->xml);
+            
         } catch (\Throwable $e) {
             throw new \RuntimeException('Erro em carregarBase: ' . $e->getMessage(), 0, $e);
         }
-
-        $conteudo = file_get_contents($caminhoXml);
-
-        // Detecta o encoding declarado no XML (ex: encoding="ISO-8859-1")
-        // Se não for UTF-8, converte para evitar problemas de caracteres
-        $encoding = 'UTF-8';
-        if (preg_match('/encoding=["\']([^"\']+)["\']/', $conteudo, $encontrado)) {
-            $encoding = strtoupper($encontrado[1]);
-        }
-
-        if ($encoding !== 'UTF-8') {
-            // mb_convert_encoding converte o texto do encoding original para UTF-8
-            $conteudo = mb_convert_encoding($conteudo, 'UTF-8', $encoding);
-            // Atualiza também a declaração dentro do XML para não criar conflito
-            $conteudo = preg_replace('/encoding=["\'][^"\']+["\']/', 'encoding="UTF-8"', $conteudo);
-        }
-
-        libxml_use_internal_errors(true);
-        libxml_clear_errors();
-
-        // Converte a string XML em objeto PHP para podermos navegar nele
-        // LIBXML_NOCDATA faz seções CDATA aparecerem como texto normal
-        $this->xml = simplexml_load_string($conteudo, 'SimpleXMLElement', LIBXML_NOCDATA);
-
-        if (!$this->xml) {
-            $erros = array_map(fn($e) => "Linha {$e->line}: " . trim($e->message), libxml_get_errors());
-            libxml_clear_errors();
-            throw new \RuntimeException("Falha ao ler o XML base. " . implode(' | ', $erros));
-        }
-
-        libxml_clear_errors();
-
-        // getNamespaces(true) retorna TODOS os namespaces do XML, inclusive os aninhados
-        // true = recursivo (pega namespaces de todos os níveis, não só do nó raiz)
-        $this->namespaces = $this->xml->getNamespaces(true);
-
-        // // 
-        $this->mapaDeNos = [];
-        $this->varrerNosTerminais($this->xml);
     }
+
+
 
     // =========================================================================
     // 2. GERAÇÃO DO XML
@@ -146,8 +105,8 @@ class XmlGeneratorDinamicoService
                 throw new \InvalidArgumentException("Nenhum dado encontrado na planilha.");
             }
 
-            $primeiraLinha   = $dados[0];
-            $camposFixos     = $this->obterCamposFixos($primeiraLinha);
+            $primeiraLinha = $dados[0];
+            $camposFixos = $this->obterCamposFixos($primeiraLinha);
             $camposRepetidos = $this->obterCamposRepetidos($primeiraLinha);
 
             foreach ($camposFixos as $cabecalho) {
@@ -163,7 +122,7 @@ class XmlGeneratorDinamicoService
 
             $dom = new DOMDocument('1.0', 'UTF-8');
             $dom->preserveWhiteSpace = false;
-            $dom->formatOutput       = true;
+            $dom->formatOutput = true;
             $dom->loadXML($this->xml->asXML());
             $dom->save($caminhoSaida);
 
@@ -181,8 +140,8 @@ class XmlGeneratorDinamicoService
     {
         try {
             $nodoDOMConteiner = null;
-            $nomeFilho        = null;
-            $namespaceFilho   = null;
+            $nomeFilho = null;
+            $namespaceFilho = null;
 
             foreach ($camposRepetidos as $campo) {
                 $nomeDaTag = $this->removerPrefixoLoop($campo);
@@ -191,14 +150,14 @@ class XmlGeneratorDinamicoService
                     continue;
                 }
 
-                $noDaFolha   = dom_import_simplexml($this->mapaDeNos[$nomeDaTag]);
-                $noItem      = $noDaFolha->parentNode;
+                $noDaFolha = dom_import_simplexml($this->mapaDeNos[$nomeDaTag]);
+                $noItem = $noDaFolha->parentNode;
                 $noConteiner = $noItem?->parentNode;
 
                 if ($noConteiner) {
                     $nodoDOMConteiner = $noConteiner;
-                    $nomeFilho        = $noItem->localName;
-                    $namespaceFilho   = $noItem->namespaceURI ?: null;
+                    $nomeFilho = $noItem->localName;
+                    $namespaceFilho = $noItem->namespaceURI ?: null;
                     break;
                 }
             }
@@ -212,8 +171,8 @@ class XmlGeneratorDinamicoService
             }
 
             $noConteinerSimpleXML = simplexml_import_dom($nodoDOMConteiner);
-            $prefixoFilho         = $this->buscarPrefixoNamespace($namespaceFilho);
-            $nomeQualificado      = $prefixoFilho ? "{$prefixoFilho}:{$nomeFilho}" : $nomeFilho;
+            $prefixoFilho = $this->buscarPrefixoNamespace($namespaceFilho);
+            $nomeQualificado = $prefixoFilho ? "{$prefixoFilho}:{$nomeFilho}" : $nomeFilho;
 
             foreach ($dados as $linha) {
                 $temDado = false;
@@ -230,15 +189,15 @@ class XmlGeneratorDinamicoService
                 $novoBloco = $noConteinerSimpleXML->addChild($nomeQualificado, null, $namespaceFilho);
 
                 foreach ($camposRepetidos as $campo) {
-                    $nomeDaTag      = $this->removerPrefixoLoop($campo);
-                    $valor          = $linha[$campo] ?? '';
+                    $nomeDaTag = $this->removerPrefixoLoop($campo);
+                    $valor = $linha[$campo] ?? '';
                     $namespaceDaTag = $this->buscarNamespaceDaTag($nomeDaTag);
-                    $prefixoDaTag   = $this->buscarPrefixoNamespace($namespaceDaTag);
+                    $prefixoDaTag = $this->buscarPrefixoNamespace($namespaceDaTag);
                     $tagQualificada = $prefixoDaTag ? "{$prefixoDaTag}:{$nomeDaTag}" : $nomeDaTag;
 
                     $novoBloco->addChild(
                         $tagQualificada,
-                        htmlspecialchars($this->formatarValor($nomeDaTag, (string)$valor), ENT_XML1, 'UTF-8'),
+                        htmlspecialchars($this->formatarValor($nomeDaTag, (string) $valor), ENT_XML1, 'UTF-8'),
                         $namespaceDaTag ?: null
                     );
                 }
@@ -256,7 +215,7 @@ class XmlGeneratorDinamicoService
     {
         try {
             $todosNamespaces = array_merge(['' => null], $this->namespaces);
-            $temFilhos       = false;
+            $temFilhos = false;
 
             foreach ($todosNamespaces as $ns) {
                 $filhos = $ns ? $no->children($ns) : $no->children();
@@ -296,10 +255,10 @@ class XmlGeneratorDinamicoService
             }
 
             if (str_contains($nomeMinusculo, 'cpf')) {
-                return preg_replace('/\D/', '', (string)$valor);
+                return preg_replace('/\D/', '', (string) $valor);
             }
 
-            return (string)$valor;
+            return (string) $valor;
         } catch (\Throwable $e) {
             throw new \RuntimeException("Erro em formatarValor (tag: {$nomeDaTag}): " . $e->getMessage(), 0, $e);
         }
@@ -312,23 +271,23 @@ class XmlGeneratorDinamicoService
                 return '';
             }
 
-        // Caso 1: número serial do Excel
-        if (is_numeric($valor)) {
-            $data = Date::excelToDateTimeObject((float)$valor);
-            return $data->format('Y-m-d');
-        }
+            // Caso 1: número serial do Excel
+            if (is_numeric($valor)) {
+                $data = Date::excelToDateTimeObject((float) $valor);
+                return $data->format('Y-m-d');
+            }
 
-            $data = \DateTime::createFromFormat('d/m/Y', (string)$valor);
+            $data = \DateTime::createFromFormat('d/m/Y', (string) $valor);
             if ($data) {
                 return $data->format('Y-m-d');
             }
 
-            $data = \DateTime::createFromFormat('Y-m-d', (string)$valor);
+            $data = \DateTime::createFromFormat('Y-m-d', (string) $valor);
             if ($data) {
                 return $data->format('Y-m-d');
             }
 
-            return (string)$valor;
+            return (string) $valor;
         } catch (\Throwable $e) {
             throw new \RuntimeException('Erro em formatarData: ' . $e->getMessage(), 0, $e);
         }
@@ -342,7 +301,7 @@ class XmlGeneratorDinamicoService
     {
         return array_values(array_filter(
             array_keys($linha),
-            fn($chave) => !str_starts_with((string)$chave, self::PREFIXO_LOOP)
+            fn($chave) => !str_starts_with((string) $chave, self::PREFIXO_LOOP)
         ));
     }
 
@@ -350,7 +309,7 @@ class XmlGeneratorDinamicoService
     {
         return array_values(array_filter(
             array_keys($linha),
-            fn($chave) => str_starts_with((string)$chave, self::PREFIXO_LOOP)
+            fn($chave) => str_starts_with((string) $chave, self::PREFIXO_LOOP)
         ));
     }
 

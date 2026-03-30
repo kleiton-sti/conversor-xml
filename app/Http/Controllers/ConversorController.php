@@ -21,8 +21,8 @@ class ConversorController extends Controller
             $xmlBasePath = $request->file('xml_base')->store('temp_uploads', 'local');
             $planilhaPath = $request->file('planilha')->store('temp_uploads', 'local');
 
-            $xmlBaseFullPath = $this->resolverCaminho(storage_path('app/private'), $xmlBasePath);
-            $planilhaFullPath = $this->resolverCaminho(storage_path('app/private'), $planilhaPath);
+            $xmlBaseFullPath = storage_path("app/private/{$xmlBasePath}");
+            $planilhaFullPath = storage_path("app/private/{$planilhaPath}");
 
             $data = (new LoadFileService($planilhaFullPath))->lerComCabecalho();
 
@@ -67,11 +67,4 @@ class ConversorController extends Controller
         }
     }
 
-    private function resolverCaminho(string $base, string $relativo): string
-    {
-        return $base . DIRECTORY_SEPARATOR . ltrim(
-            str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $relativo),
-            DIRECTORY_SEPARATOR
-        );
-    }
 }
