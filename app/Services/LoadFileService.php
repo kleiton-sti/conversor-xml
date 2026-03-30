@@ -20,17 +20,14 @@ class LoadFileService
             $excel  = IOFactory::load($this->caminhoArquivo);
             $aba    = $excel->getSheet(0);
             $linhas = $aba->toArray(null, true, true, false);
-
-            $dados = [];
+            $dados  = [];
 
             foreach (array_slice($linhas, 1) as $linha) {
                 $linhaNaoVazia = array_filter($linha, fn($celula) => $celula !== null && $celula !== '');
                 if (empty($linhaNaoVazia)) {
                     continue;
                 }
-
-                $letras  = $this->gerarLetras(count($linha));
-                $dados[] = array_combine($letras, $linha);
+                $dados[] = array_combine($this->gerarLetras(count($linha)), $linha);
             }
 
             return $dados;
@@ -70,14 +67,24 @@ class LoadFileService
         }
     }
 
+    /** @deprecated Use lerPorLetras() */
+    public function reader(): array
+    {
+        return $this->lerPorLetras();
+    }
+
+    /** @deprecated Use lerComCabecalho() */
+    public function readerWithHeader(): array
+    {
+        return $this->lerComCabecalho();
+    }
+
     private function gerarLetras(int $quantidade): array
     {
         $letras = [];
-
         for ($i = 1; $i <= $quantidade; $i++) {
             $letras[] = Coordinate::stringFromColumnIndex($i);
         }
-
         return $letras;
     }
 }

@@ -18,21 +18,20 @@ class ConversorController extends Controller
     public function processar(XmlRequest $request)
     {
         try {
-            $xmlBasePath  = $request->file('xml_base')->store('temp_uploads', 'local');
+            $xmlBasePath = $request->file('xml_base')->store('temp_uploads', 'local');
             $planilhaPath = $request->file('planilha')->store('temp_uploads', 'local');
 
-            $xmlBaseFullPath  = $this->resolverCaminho(storage_path('app/private'), $xmlBasePath);
+            $xmlBaseFullPath = $this->resolverCaminho(storage_path('app/private'), $xmlBasePath);
             $planilhaFullPath = $this->resolverCaminho(storage_path('app/private'), $planilhaPath);
 
             $data = (new LoadFileService($planilhaFullPath))->lerComCabecalho();
-         
 
             if (empty($data)) {
                 throw new \RuntimeException('A planilha está vazia ou não possui dados após o cabeçalho.');
             }
 
             $outputFileName = 'xmlConverted_' . date('Ymd_His') . '.xml';
-            $outputPath     = storage_path("xml/{$outputFileName}");
+            $outputPath = storage_path("xml/{$outputFileName}");
 
             if (!is_dir(storage_path('xml'))) {
                 mkdir(storage_path('xml'), 0755, true);
@@ -46,14 +45,17 @@ class ConversorController extends Controller
             @unlink($planilhaFullPath);
 
             return response()->streamDownload(
-                function () use ($xmlContent) { echo $xmlContent; },
+                function () use ($xmlContent) {
+                    echo $xmlContent; },
                 $outputFileName,
                 ['Content-Type' => 'application/xml']
             );
 
         } catch (\Throwable $e) {
-            if (isset($xmlBaseFullPath) && file_exists($xmlBaseFullPath))  @unlink($xmlBaseFullPath);
-            if (isset($planilhaFullPath) && file_exists($planilhaFullPath)) @unlink($planilhaFullPath);
+            if (isset($xmlBaseFullPath) && file_exists($xmlBaseFullPath))
+                @unlink($xmlBaseFullPath);
+            if (isset($planilhaFullPath) && file_exists($planilhaFullPath))
+                @unlink($planilhaFullPath);
 
             Log::error('ConversorController::processar — ' . $e->getMessage(), [
                 'exception' => $e,
@@ -67,7 +69,9 @@ class ConversorController extends Controller
 
     private function resolverCaminho(string $base, string $relativo): string
     {
-        $caminho = $base . DIRECTORY_SEPARATOR . ltrim(str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $relativo), DIRECTORY_SEPARATOR);
-        return $caminho;
+        return $base . DIRECTORY_SEPARATOR . ltrim(
+            str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $relativo),
+            DIRECTORY_SEPARATOR
+        );
     }
 }
