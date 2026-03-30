@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adm:AdmissaoEfetivos xmlns:adm="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo" xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico" xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo ../admissao/AUDESP_ADMISSAO_EFETIVOS_2023_A.XSD">
+  <adm:Descritor>
+    <gen:AnoExercicio>2025</gen:AnoExercicio>
+    <gen:TipoDocumento>Admissão de Efetivos</gen:TipoDocumento>
+    <gen:Entidade>1</gen:Entidade>
+    <gen:Municipio>6311</gen:Municipio>
+    <gen:DataCriacaoXML>2026-11-09</gen:DataCriacaoXML>
+    <gen:MesExercicio>8</gen:MesExercicio>
+  </adm:Descritor>
+  <adm:ListaAdmissoes>
+    <adm:Admissao>
+      <adm:DadosAdmissao>
+        <adm:codigoCargo>19</adm:codigoCargo>
+        <adm:EntidadeDetentora>
+          <ap:CodigoEntidadeDetentora>2</ap:CodigoEntidadeDetentora>
+          <ap:CodigoMunicipioEntidadeDetentora>6311</ap:CodigoMunicipioEntidadeDetentora>
+        </adm:EntidadeDetentora>
+        <adm:IdentificacaoProcessoSeletivo>
+          <ap:numeroProcessoSelecao>003/2023</ap:numeroProcessoSelecao>
+          <ap:anoProcessoSelecao>2023</ap:anoProcessoSelecao>
+        </adm:IdentificacaoProcessoSeletivo>
+        <adm:CargoFuncaoEdital>
+          <ap:EntidadePrevista>
+            <ap:CodigoEntidadePrevista>2</ap:CodigoEntidadePrevista>
+            <ap:CodigoMunicipioEntidadePrevista>6311</ap:CodigoMunicipioEntidadePrevista>
+          </ap:EntidadePrevista>
+          <ap:codigoCargo>1</ap:codigoCargo>
+        </adm:CargoFuncaoEdital>
+      </adm:DadosAdmissao>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <gen:Numero>6631934516</gen:Numero>
+          <adm:nomeAdmitido>ANA DARK SANTOS PRAINHA</adm:nomeAdmitido>
+          <adm:pisPasep>20067678313</adm:pisPasep>
+          <adm:dataAdmissao>2025-06-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>31851298819</gen:Numero>
+          <adm:nomeAdmitido>ANA ELISA MOTA MIRANDA</adm:nomeAdmitido>
+          <adm:pisPasep>12747211268</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>38994439854</gen:Numero>
+          <adm:nomeAdmitido>PAULA DOS SANTOS</adm:nomeAdmitido>
+          <adm:pisPasep>20164165066</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>51460415809</gen:Numero>
+          <adm:nomeAdmitido>JAYANE MENDONCA DOS SANTOS BATISTA</adm:nomeAdmitido>
+          <adm:pisPasep>19067364994</adm:pisPasep>
+          <adm:dataAdmissao>2025-01-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>25749971821</gen:Numero>
+          <adm:nomeAdmitido>PATRICIA NUNES MONTEIRO</adm:nomeAdmitido>
+          <adm:pisPasep>12543997484</adm:pisPasep>
+          <adm:dataAdmissao>2026-10-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>11769390847</gen:Numero>
+          <adm:nomeAdmitido>ZILDA QUINTINO DOS SANTOS</adm:nomeAdmitido>
+          <adm:pisPasep>12193383504</adm:pisPasep>
+          <adm:dataAdmissao>2026-06-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>15512701886</gen:Numero>
+          <adm:nomeAdmitido>ELIANE GILDA DOS SANTOS</adm:nomeAdmitido>
+          <adm:pisPasep>12433011673</adm:pisPasep>
+          <adm:dataAdmissao>2026-03-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>16163149823</gen:Numero>
+          <adm:nomeAdmitido>ANDREIA LUCIA MAGALHAES REIS</adm:nomeAdmitido>
+          <adm:pisPasep>12392036480</adm:pisPasep>
+          <adm:dataAdmissao>2026-06-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>24626407897</gen:Numero>
+          <adm:nomeAdmitido>MARIA DELUCIA DA SILVA MATOS</adm:nomeAdmitido>
+          <adm:pisPasep>12539207695</adm:pisPasep>
+          <adm:dataAdmissao>2026-06-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>30169076822</gen:Numero>
+          <adm:nomeAdmitido>ANA PAULA FERREIRA DA SILVA TORRES</adm:nomeAdmitido>
+          <adm:pisPasep>12825283233</adm:pisPasep>
+          <adm:dataAdmissao>2026-06-08</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>N</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>96088346272</adm:Numero3>
+        </adm:Admitido>
+        <adm:Admitido>
+          <gen:Numero>6565565656</gen:Numero>
+          <adm:nomeAdmitido>CLAUDINHA BOLO DE POTE</adm:nomeAdmitido>
+          <adm:pisPasep>8797968787</adm:pisPasep>
+          <adm:dataAdmissao>2026-07-10</adm:dataAdmissao>
+          <adm:houveEntregaDeclaracaoBens>S</adm:houveEntregaDeclaracaoBens>
+          <adm:Tipo2>2</adm:Tipo2>
+          <adm:Numero3>9906847417</adm:Numero3>
+        </adm:Admitido>
+      </adm:Admitidos>
+    </adm:Admissao>
+  </adm:ListaAdmissoes>
+</adm:AdmissaoEfetivos>

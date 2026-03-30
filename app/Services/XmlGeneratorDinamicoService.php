@@ -75,7 +75,7 @@ class XmlGeneratorDinamicoService
                 $conteudo = preg_replace('/encoding=["\'][^"\']+["\']/', 'encoding="UTF-8"', $conteudo);
             }
 
-       
+
             $this->xml = simplexml_load_string($conteudo, 'SimpleXMLElement', LIBXML_NOCDATA);
 
             if ($this->xml === false) {
@@ -86,7 +86,7 @@ class XmlGeneratorDinamicoService
             $this->namespaces = $this->xml->getNamespaces(true);
             $this->mapaDeNos = [];
             $this->varrerNosTerminais($this->xml);
-            
+
         } catch (\Throwable $e) {
             throw new \RuntimeException('Erro em carregarBase: ' . $e->getMessage(), 0, $e);
         }
@@ -136,76 +136,144 @@ class XmlGeneratorDinamicoService
     // 3. PREENCHIMENTO DOS CAMPOS REPETIDOS (LOOP)
     // =========================================================================
 
-    protected function preencherCamposRepetidos(array $dados, array $camposRepetidos): void
-    {
-        try {
-            $nodoDOMConteiner = null;
-            $nomeFilho = null;
-            $namespaceFilho = null;
+protected function preencherCamposRepetidos(array $dados, array $camposRepetidos): void
+{
+    try {
+        $nodoDOMConteiner = null;
+        $noBlocoRepetido = null;
+        $nomeBloco = null;
+        $namespaceBloco = null;
+
+        foreach ($camposRepetidos as $campo) {
+            $nomeDaTag = $this->removerPrefixoLoop($campo);
+
+            if (!isset($this->mapaDeNos[$nomeDaTag])) {
+                continue;
+            }
+
+            $noDaFolha = dom_import_simplexml($this->mapaDeNos[$nomeDaTag]);
+
+            if (!$noDaFolha || !$noDaFolha->parentNode || !$noDaFolha->parentNode->parentNode) {
+                continue;
+            }
+
+            $noPaiImediato = $noDaFolha->parentNode;
+            $noBloco = $noPaiImediato->parentNode;
+            $noConteiner = $noBloco?->parentNode;
+
+            if ($noConteiner && $noBloco) {
+                $nodoDOMConteiner = $noConteiner;  // admitidos
+                $noBlocoRepetido = $noBloco;      
+                $nomeBloco = $noBloco->localName; // admitido
+                $namespaceBloco = $noBloco->namespaceURI ?: null;
+                break;
+            }
+        }
+
+        if (!$nodoDOMConteiner || !$noBlocoRepetido || !$nomeBloco) {
+            return;
+        }
+
+        while ($nodoDOMConteiner->firstChild) {
+            $nodoDOMConteiner->removeChild($nodoDOMConteiner->firstChild);
+        }
+
+        $noConteinerSimpleXML = simplexml_import_dom($nodoDOMConteiner);
+        $prefixoBloco = $this->buscarPrefixoNamespace($namespaceBloco);
+        $nomeQualificadoBloco = $prefixoBloco ? "{$prefixoBloco}:{$nomeBloco}" : $nomeBloco;
+
+        foreach ($dados as $linha) {
+            $temDado = false;
+
+            foreach ($camposRepetidos as $campo) {
+                if (!empty($linha[$campo])) {
+                    $temDado = true;
+                    break;
+                }
+            }
+
+            if ($temDado === false) {
+                continue;
+            }
+
+            $novoBloco = $noConteinerSimpleXML->addChild(
+                $nomeQualificadoBloco,
+                null,
+                $namespaceBloco
+            );
+
+            // cache dos blocos intermediários criados nesta linha
+            $blocosIntermediarios = [];
 
             foreach ($camposRepetidos as $campo) {
                 $nomeDaTag = $this->removerPrefixoLoop($campo);
+                $valor = $linha[$campo] ?? '';
 
                 if (!isset($this->mapaDeNos[$nomeDaTag])) {
                     continue;
                 }
 
                 $noDaFolha = dom_import_simplexml($this->mapaDeNos[$nomeDaTag]);
-                $noItem = $noDaFolha->parentNode;
-                $noConteiner = $noItem?->parentNode;
+                
 
-                if ($noConteiner) {
-                    $nodoDOMConteiner = $noConteiner;
-                    $nomeFilho = $noItem->localName;
-                    $namespaceFilho = $noItem->namespaceURI ?: null;
-                    break;
-                }
-            }
-
-            if (!$nodoDOMConteiner || !$nomeFilho) {
-                return;
-            }
-
-            while ($nodoDOMConteiner->firstChild) {
-                $nodoDOMConteiner->removeChild($nodoDOMConteiner->firstChild);
-            }
-
-            $noConteinerSimpleXML = simplexml_import_dom($nodoDOMConteiner);
-            $prefixoFilho = $this->buscarPrefixoNamespace($namespaceFilho);
-            $nomeQualificado = $prefixoFilho ? "{$prefixoFilho}:{$nomeFilho}" : $nomeFilho;
-
-            foreach ($dados as $linha) {
-                $temDado = false;
-                foreach ($camposRepetidos as $campo) {
-                    if (!empty($linha[$campo])) {
-                        $temDado = true;
-                        break;
-                    }
-                }
-                if (!$temDado) {
+                if (!$noDaFolha || !$noDaFolha->parentNode) {
                     continue;
                 }
 
-                $novoBloco = $noConteinerSimpleXML->addChild($nomeQualificado, null, $namespaceFilho);
+                $noPaiImediato = $noDaFolha->parentNode;
 
-                foreach ($camposRepetidos as $campo) {
-                    $nomeDaTag = $this->removerPrefixoLoop($campo);
-                    $valor = $linha[$campo] ?? '';
-                    $namespaceDaTag = $this->buscarNamespaceDaTag($nomeDaTag);
-                    $prefixoDaTag = $this->buscarPrefixoNamespace($namespaceDaTag);
-                    $tagQualificada = $prefixoDaTag ? "{$prefixoDaTag}:{$nomeDaTag}" : $nomeDaTag;
+                $namespaceDaTag = $this->buscarNamespaceDaTag($nomeDaTag);
+                $prefixoDaTag = $this->buscarPrefixoNamespace($namespaceDaTag);
+                $tagQualificada = $prefixoDaTag ? "{$prefixoDaTag}:{$nomeDaTag}" : $nomeDaTag;
 
+                if ($noPaiImediato->localName === $noBlocoRepetido->localName) {
                     $novoBloco->addChild(
                         $tagQualificada,
-                        htmlspecialchars($this->formatarValor($nomeDaTag, (string) $valor), ENT_XML1, 'UTF-8'),
+                        htmlspecialchars(
+                            $this->formatarValor($nomeDaTag, (string) $valor),
+                            ENT_XML1,
+                            'UTF-8'
+                        ),
                         $namespaceDaTag ?: null
                     );
+
+                    continue;
                 }
+
+                $nomePaiIntermediario = $noPaiImediato->localName;
+                $namespacePaiIntermediario = $noPaiImediato->namespaceURI ?: null;
+                $prefixoPaiIntermediario = $this->buscarPrefixoNamespace($namespacePaiIntermediario);
+                $tagPaiQualificada = $prefixoPaiIntermediario
+                    ? "{$prefixoPaiIntermediario}:{$nomePaiIntermediario}"
+                    : $nomePaiIntermediario;
+
+                if (!isset($blocosIntermediarios[$nomePaiIntermediario])) {
+                    $blocoIntermediario = $novoBloco->addChild(
+                        $tagPaiQualificada,
+                        null,
+                        $namespacePaiIntermediario
+                    );
+
+                    $blocosIntermediarios[$nomePaiIntermediario] = $blocoIntermediario;
+                }
+
+                $blocosIntermediarios[$nomePaiIntermediario]->addChild(
+                    $tagQualificada,
+                    htmlspecialchars(
+                        $this->formatarValor($nomeDaTag, (string) $valor),
+                        ENT_XML1,
+                        'UTF-8'
+                    ),
+                    $namespaceDaTag ?: null
+                );
             }
-        } catch (\Throwable $e) {
-            throw new \RuntimeException('Erro em preencherCamposRepetidos: ' . $e->getMessage(), 0, $e);
         }
+    } catch (\Throwable $e) {
+        throw new \RuntimeException('Erro em preencherCamposRepetidos: ' . $e->getMessage(), 0, $e);
     }
+}
+
+
 
     // =========================================================================
     // 4. VARREDURA DOS NÓS TERMINAIS DO XML
