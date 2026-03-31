@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adm:AdmissaoEfetivos xmlns:adm="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo" xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico" xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo ../admissao/AUDESP_ADMISSAO_EFETIVOS_2023_A.XSD">
+  <adm:Descritor>
+    <gen:AnoExercicio>2023</gen:AnoExercicio>
+    <gen:TipoDocumento>Admissão de Efetivos</gen:TipoDocumento>
+    <gen:Entidade>10048</gen:Entidade>
+    <gen:Municipio>7107</gen:Municipio>
+    <gen:DataCriacaoXML>2022-12-15</gen:DataCriacaoXML>
+    <gen:MesExercicio>4</gen:MesExercicio>
+  </adm:Descritor>
+  <adm:ListaAdmissoes>
+    <adm:Admissao>
+      <adm:DadosAdmissao>
+        <adm:codigoCargo>1</adm:codigoCargo>
+        <adm:EntidadeDetentora>
+          <ap:CodigoEntidadeDetentora>10048</ap:CodigoEntidadeDetentora>
+          <ap:CodigoMunicipioEntidadeDetentora>7107</ap:CodigoMunicipioEntidadeDetentora>
+        </adm:EntidadeDetentora>
+        <adm:IdentificacaoProcessoSeletivo>
+          <ap:numeroProcessoSelecao>123</ap:numeroProcessoSelecao>
+          <ap:anoProcessoSelecao>2023</ap:anoProcessoSelecao>
+        </adm:IdentificacaoProcessoSeletivo>
+        <adm:CargoFuncaoEdital>
+          <ap:EntidadePrevista>
+            <ap:CodigoEntidadePrevista>10048</ap:CodigoEntidadePrevista>
+            <ap:CodigoMunicipioEntidadePrevista>7107</ap:CodigoMunicipioEntidadePrevista>
+          </ap:EntidadePrevista>
+          <ap:codigoCargo>1</ap:codigoCargo>
+        </adm:CargoFuncaoEdital>
+      </adm:DadosAdmissao>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <adm:cpfAdmitido Tipo="02">
+            <gen:Numero>00000000191</gen:Numero>
+          </adm:cpfAdmitido>
+          <adm:nomeAdmitido>Nome</adm:nomeAdmitido>
+          <adm:pisPasep>00000000019</adm:pisPasep>
+          <adm:dataAdmissao>2023-01-01</adm:dataAdmissao>
+          <adm:cpfResponsavelAdmissao Tipo="02">
+            <gen:Numero>00000000191</gen:Numero>
+          </adm:cpfResponsavelAdmissao>
+        </adm:Admitido>
+      </adm:Admitidos>
+    </adm:Admissao>
+  </adm:ListaAdmissoes>
+</adm:AdmissaoEfetivos>

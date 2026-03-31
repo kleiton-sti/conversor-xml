@@ -254,6 +254,15 @@ protected function preencherCamposRepetidos(array $dados, array $camposRepetidos
                         $namespacePaiIntermediario
                     );
 
+                    if ($noPaiImediato->hasAttributes()) {
+                        foreach ($noPaiImediato->attributes as $atributo) {
+                            $blocoIntermediario->addAttribute(
+                                $atributo->nodeName,
+                                $atributo->nodeValue
+                            );
+                        }
+                    }
+
                     $blocosIntermediarios[$nomePaiIntermediario] = $blocoIntermediario;
                 }
 
@@ -298,6 +307,10 @@ protected function preencherCamposRepetidos(array $dados, array $camposRepetidos
                 $nomeDaTag = $no->getName();
                 if (!isset($this->mapaDeNos[$nomeDaTag])) {
                     $this->mapaDeNos[$nomeDaTag] = $no;
+                }
+                else{
+                    $novoNome = $nomeDaTag . '2';
+                    $this->mapaDeNos[$novoNome] = $no;
                 }
             }
         } catch (\Throwable $e) {
@@ -410,30 +423,5 @@ protected function preencherCamposRepetidos(array $dados, array $camposRepetidos
 
         return null;
     }
-
-    // =========================================================================
-    // 7. UTILITÁRIOS (depuração / validação)
-    // =========================================================================
-
-    public function listarTagsDisponiveis(): array
-    {
-        return array_keys($this->mapaDeNos);
-    }
-
-    public function validarCabecalhos(array $cabecalhos): array
-    {
-        $naoEncontrados = [];
-
-        foreach ($cabecalhos as $cabecalho) {
-            $nomeDaTag = str_starts_with($cabecalho, self::PREFIXO_LOOP)
-                ? $this->removerPrefixoLoop($cabecalho)
-                : $cabecalho;
-
-            if (!isset($this->mapaDeNos[$nomeDaTag])) {
-                $naoEncontrados[] = $cabecalho;
-            }
-        }
-
-        return $naoEncontrados;
-    }
+ 
 }

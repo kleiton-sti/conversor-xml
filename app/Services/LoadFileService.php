@@ -14,28 +14,7 @@ class LoadFileService
         $this->caminhoArquivo = $caminhoArquivo;
     }
 
-    public function lerPorLetras(): array
-    {
-        try {
-            $excel  = IOFactory::load($this->caminhoArquivo);
-            $aba    = $excel->getSheet(0);
-            $linhas = $aba->toArray(null, true, true, false);
-            $dados  = [];
-
-            foreach (array_slice($linhas, 1) as $linha) {
-                $linhaNaoVazia = array_filter($linha, fn($celula) => $celula !== null && $celula !== '');
-                if (empty($linhaNaoVazia)) {
-                    continue;
-                }
-                $dados[] = array_combine($this->gerarLetras(count($linha)), $linha);
-            }
-
-            return $dados;
-        } catch (\Throwable $e) {
-            throw new \RuntimeException('Erro ao ler a planilha (lerPorLetras): ' . $e->getMessage(), 0, $e);
-        }
-    }
-
+    // converter em um objeto manipulável
     public function lerComCabecalho(): array
     {
         try {
@@ -66,25 +45,5 @@ class LoadFileService
             throw new \RuntimeException('Erro ao ler a planilha (lerComCabecalho): ' . $e->getMessage(), 0, $e);
         }
     }
-
-    /** @deprecated Use lerPorLetras() */
-    public function reader(): array
-    {
-        return $this->lerPorLetras();
-    }
-
-    /** @deprecated Use lerComCabecalho() */
-    public function readerWithHeader(): array
-    {
-        return $this->lerComCabecalho();
-    }
-
-    private function gerarLetras(int $quantidade): array
-    {
-        $letras = [];
-        for ($i = 1; $i <= $quantidade; $i++) {
-            $letras[] = Coordinate::stringFromColumnIndex($i);
-        }
-        return $letras;
-    }
+   
 }

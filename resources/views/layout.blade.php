@@ -19,6 +19,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    <iframe id="downloadFrame" style="display:none;"></iframe>
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -268,6 +269,7 @@
     <script src={{asset("/js/datatables/dataTables.bootstrap4.min.js")}}></script>
     <script src={{asset("/js/dataTables.js")}}></script>
     <script src={{asset("/js/modal-confirmacao.js")}}></script>
+    <script src="{{ asset('js/recarregaPag.js') }}"></script>
     @stack('scripts')
 </body>
 

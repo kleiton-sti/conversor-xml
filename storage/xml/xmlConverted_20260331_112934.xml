@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adm:AdmissaoEfetivos xmlns:adm="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo" xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico" xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo ../admissao/AUDESP_ADMISSAO_EFETIVOS_2023_A.XSD">
+  <adm:Descritor>
+    <gen:AnoExercicio>2025</gen:AnoExercicio>
+    <gen:TipoDocumento>Admissão de Efetivos</gen:TipoDocumento>
+    <gen:Entidade>1</gen:Entidade>
+    <gen:Municipio>6311</gen:Municipio>
+    <gen:DataCriacaoXML>2026-11-09</gen:DataCriacaoXML>
+    <gen:MesExercicio>8</gen:MesExercicio>
+  </adm:Descritor>
+  <adm:ListaAdmissoes>
+    <adm:Admissao>
+      <adm:DadosAdmissao>
+        <adm:codigoCargo>19</adm:codigoCargo>
+        <adm:EntidadeDetentora>
+          <ap:CodigoEntidadeDetentora>2</ap:CodigoEntidadeDetentora>
+          <ap:CodigoMunicipioEntidadeDetentora>6311</ap:CodigoMunicipioEntidadeDetentora>
+        </adm:EntidadeDetentora>
+        <adm:IdentificacaoProcessoSeletivo>
+          <ap:numeroProcessoSelecao>003/2023</ap:numeroProcessoSelecao>
+          <ap:anoProcessoSelecao>2023</ap:anoProcessoSelecao>
+        </adm:IdentificacaoProcessoSeletivo>
+        <adm:CargoFuncaoEdital>
+          <ap:EntidadePrevista>
+            <ap:CodigoEntidadePrevista>2</ap:CodigoEntidadePrevista>
+            <ap:CodigoMunicipioEntidadePrevista>6311</ap:CodigoMunicipioEntidadePrevista>
+          </ap:EntidadePrevista>
+          <ap:codigoCargo>19</ap:codigoCargo>
+        </adm:CargoFuncaoEdital>
+      </adm:DadosAdmissao>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <adm:cpfAdmitido Tipo="02">
+            <gen:Numero>6631934516</gen:Numero>
+          </adm:cpfAdmitido>
+          <adm:nomeAdmitido>ANA DARK SANTOS PRAINHA</adm:nomeAdmitido>
+          <adm:pisPasep>20067678313</adm:pisPasep>
+          <adm:dataAdmissao>2025-06-08</adm:dataAdmissao>
+          <adm:cpfResponsavelAdmissao Tipo="02">
+            <gen:Numero2>96088346272</gen:Numero2>
+          </adm:cpfResponsavelAdmissao>
+        </adm:Admitido>
+        <adm:Admitido>
+          <adm:cpfAdmitido Tipo="02">
+            <gen:Numero>31851298819</gen:Numero>
+          </adm:cpfAdmitido>
+          <adm:nomeAdmitido>ANA ELISA MOTA MIRANDA</adm:nomeAdmitido>
+          <adm:pisPasep>12747211268</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+          <adm:cpfResponsavelAdmissao Tipo="02">
+            <gen:Numero2>96088346272</gen:Numero2>
+          </adm:cpfResponsavelAdmissao>
+        </adm:Admitido>
+        <adm:Admitido>
+          <adm:cpfAdmitido Tipo="02">
+            <gen:Numero>38994439854</gen:Numero>
+          </adm:cpfAdmitido>
+          <adm:nomeAdmitido>PAULA DOS SANTOS</adm:nomeAdmitido>
+          <adm:pisPasep>20164165066</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+          <adm:cpfResponsavelAdmissao Tipo="02">
+            <gen:Numero2>96088346272</gen:Numero2>
+          </adm:cpfResponsavelAdmissao>
+        </adm:Admitido>
+      </adm:Admitidos>
+    </adm:Admissao>
+  </adm:ListaAdmissoes>
+</adm:AdmissaoEfetivos>

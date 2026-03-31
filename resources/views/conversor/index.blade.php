@@ -113,7 +113,8 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary" id="btnGerar">
+                            <button type="submit" onclick="
+                            baixarXml()" class="btn btn-primary" id="btnGerar">
                                 <i class="fas fa-cogs mr-1"></i>
                                 Gerar XML
                             </button>

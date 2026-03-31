@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adm:AdmissaoEfetivos xmlns:adm="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo" xmlns:gen="http://www.tce.sp.gov.br/audesp/xml/generico" xmlns:ap="http://www.tce.sp.gov.br/audesp/xml/atospessoal" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tce.sp.gov.br/audesp/xml/admissaofetivo ../admissao/AUDESP_ADMISSAO_EFETIVOS_2023_A.XSD">
+  <adm:Descritor>
+    <gen:AnoExercicio>2025</gen:AnoExercicio>
+    <gen:TipoDocumento>Admissão de Efetivos</gen:TipoDocumento>
+    <gen:Entidade>1</gen:Entidade>
+    <gen:Municipio>6311</gen:Municipio>
+    <gen:DataCriacaoXML>2026-11-09</gen:DataCriacaoXML>
+    <gen:MesExercicio>8</gen:MesExercicio>
+  </adm:Descritor>
+  <adm:ListaAdmissoes>
+    <adm:Admissao>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <adm:nomeAdmitido>ANA DARK SANTOS PRAINHA</adm:nomeAdmitido>
+          <adm:pisPasep>20067678313</adm:pisPasep>
+          <adm:dataAdmissao>2025-06-08</adm:dataAdmissao>
+        </adm:Admitido>
+      </adm:Admitidos>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <adm:nomeAdmitido>ANA ELISA MOTA MIRANDA</adm:nomeAdmitido>
+          <adm:pisPasep>12747211268</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+        </adm:Admitido>
+      </adm:Admitidos>
+      <adm:Admitidos>
+        <adm:Admitido>
+          <adm:nomeAdmitido>PAULA DOS SANTOS</adm:nomeAdmitido>
+          <adm:pisPasep>20164165066</adm:pisPasep>
+          <adm:dataAdmissao>2025-04-08</adm:dataAdmissao>
+        </adm:Admitido>
+      </adm:Admitidos>
+    </adm:Admissao>
+  </adm:ListaAdmissoes>
+</adm:AdmissaoEfetivos>
